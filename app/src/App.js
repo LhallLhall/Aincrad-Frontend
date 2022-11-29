@@ -1,23 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
+import React, {useState, useEffect} from 'react';
+import Axios from 'axios'
+import ReactDOM from 'react-dom/client';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
 
 function App() {
+  const [data, setData] = useState([])
+  const [page, setPage ] = useState('Home')
+
+  useEffect(() => {
+    Axios.get('https://8000-lhalllhall-aincradbacke-leafyr8orcy.ws-us77.gitpod.io/games/api/')
+        .then((resp) => setData(resp.data));
+  }, [])
+console.log(data)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div>
+      <input type="text" placeholder='Username'/>
+      </div>
+      <div>
+      <input type="text" placeholder="Password"/>
+      </div>
+      <div>
+        <button className='btn btn-primary'>Click to Register</button>
+      </div>
     </div>
   );
 }
