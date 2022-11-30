@@ -5,29 +5,29 @@ import Axios from 'axios'
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
+import './App.css';
+import { Outlet } from "react-router-dom";
+import { GlobalProvider } from './context/GlobalState';
+import Navbar from './components/navbar.jsx';
+import Register from './components/register.jsx'
+import LearnMore from './components/learnMore.jsx'
+
 
 function App() {
-  const [data, setData] = useState([])
-  const [page, setPage ] = useState('Home')
+  
 
-  useEffect(() => {
-    Axios.get('https://8000-lhalllhall-aincradbacke-leafyr8orcy.ws-us77.gitpod.io/games/api/')
-        .then((resp) => setData(resp.data));
-  }, [])
-console.log(data)
+
   return (
-    <div>
-      <div>
-      <input type="text" placeholder='Username'/>
-      </div>
-      <div>
-      <input type="text" placeholder="Password"/>
-      </div>
-      <div>
-        <button className='btn btn-primary'>Click to Register</button>
-      </div>
-    </div>
-  );
-}
+    <GlobalProvider>
+      <Navbar />
+      <LearnMore/>
+      <Register />
+      <Outlet />
+    </GlobalProvider>
+  )
 
-export default App;
+  }
+  
+  export default App;
+  // <Navbar data={data} setData={setData} page={page} setPage={setPage}/>,
+  // <Register data={data} setData={setData} page={page} setPage={setPage}/>
