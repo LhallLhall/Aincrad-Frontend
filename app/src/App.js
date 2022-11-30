@@ -18,12 +18,12 @@ function App() {
 
 
   return (
-    <GlobalProvider>
+    <>
       <Navbar />
       <LearnMore/>
       <Register />
       <Outlet />
-    </GlobalProvider>
+    </>
   )
 
   }

@@ -1,42 +1,57 @@
 import React from "react";
+import App from '../App.js'
 import Navbar from "../components/navbar.jsx";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import AuthService from '../services/auth.service'
+// "../../services/auth.service";
+import { useNavigate } from 'react-router-dom';
+import { useGlobalState } from "../context/GlobalState";
+import jwtDecode from "jwt-decode";
 
-export default function Login() {
-  const [username, setUsername] = useState(" ")
-  const [password, setPassword] = useState(" ")
 
-  const userNameInput = (e) => {
-    setUsername(e.target.value);
+const Login = () => {
+  let navigate = useNavigate();
+  
+  const [ state, dispatch ] = useGlobalState();
+  
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  
+  const usernameInput = (e) => {
+  setUsername(e.target.value);
   };
   const passwordInput = (e) => {
     setPassword(e.target.value);
   };
-  const submit = async () => {
-    const user = axios.post(
-      "https://8000-lhalllhall-aincradbacke-leafyr8orcy.ws-us77.gitpod.io/games/token/obtain/",
-      {
-        "username": username,
-        "password": password,
-      }
-    );
-    const res = await user;
-    localStorage.setItem("token", res.data.access);
-    console.log(res)
-  };
-  return (
-    <div>
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    
+      AuthService
+        .login(username, password)
+        .then(async (resp) => {
+          let data = jwtDecode(resp.access)
+          await dispatch({
+            currentUserToken: resp.access,
+            currentUser: data
+          })
+          navigate('/findGames')
+        });
+    }
+      return (
+        <div>
       <Navbar />
       <div className="row d-flex justify-content-center align-items-center">
         <div className="col-12 pb-4 d-flex justify-content-center">
-          <input onChange={userNameInput} type="text" placeholder="Username" />
+          <input id='usernameInput' onChange={usernameInput} type="text" placeholder="Username" />
         </div>
         <div className="col-12 pb-4 d-flex justify-content-center">
-          <input onChange={passwordInput} type="text" placeholder="Password" />
+          <input id='passwordInput'onChange={passwordInput} type="text" placeholder="Password" />
         </div>
         <div className="col-12 d-flex justify-content-center">
-          <button onClick={submit} type="button" className="btn btn-primary">
+          <button onClick={handleLogin} type="button" className="btn btn-primary">
             Click to Login
           </button>
         </div>
@@ -44,3 +59,5 @@ export default function Login() {
     </div>
   );
 }
+export default Login
+

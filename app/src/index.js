@@ -6,7 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import Register from './components/register.jsx'
 import Navbar from './components/navbar.jsx' 
 import Login from './pages/login.jsx'
+import FindGames from './pages/findGames.jsx'
 import {useState, useEffect} from 'react';
+import { GlobalProvider } from './context/GlobalState';
 import {
   BrowserRouter as Router,
   Switch,
@@ -29,17 +31,20 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 // }
 
 root.render(
+<GlobalProvider>
 <Router>
   <Routes>
     <Route path="/" element={<App />}>
     </Route>
-    <Route path="/login" element={<Login />} />
-    <Route />
-
+    <Route path="/login" element={<Login />} >
+    </Route>
+    <Route path='/findGames' element={<FindGames />}>
+    </Route>
       {/* <Route path="register" element={<Register />} /> */}
       {/* <Route path="profile" element={<Profile />} /> */}
   </Routes>
 </Router>
+</GlobalProvider>
 )
 
 // If you want to start measuring performance in your app, pass a function
