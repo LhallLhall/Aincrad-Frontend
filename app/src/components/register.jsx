@@ -4,7 +4,7 @@ import { useGlobalState } from '../context/GlobalState.jsx'
 import { Link } from "react-router-dom"
 import axios from 'axios'
 
-export default function register () {
+export default function Register () {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   // async function getSomeDataFromBackend() {
@@ -18,11 +18,9 @@ export default function register () {
   // }
 const userNameInput = (e) => {
   setUsername(e.target.value)
-  console.log(username)
 }
 const passwordInput = (e) => {
   setPassword(e.target.value)
-  console.log(password)
 }
 
 const submit = () => {

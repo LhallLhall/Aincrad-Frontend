@@ -3,17 +3,19 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Register from './components/register.jsx'
-import Navbar from './components/navbar.jsx' 
+// import Register from './components/register.jsx'
+// import Navbar from './components/navbar.jsx' 
 import Login from './pages/login.jsx'
 import FindGames from './pages/findGames.jsx'
-import {useState, useEffect} from 'react';
+import MyFriends from './pages/myFriends.jsx'
+import MyGames from './pages/myGames.jsx'
+// import {useState, useEffect} from 'react';
 import { GlobalProvider } from './context/GlobalState';
 import {
   BrowserRouter as Router,
-  Switch,
+  // Switch,
   Route,
-  Link,
+  // Link,
   Routes,
 } from "react-router-dom";
 
@@ -35,12 +37,20 @@ root.render(
 <Router>
   <Routes>
     <Route path="/" element={<App />}>
+
     </Route>
     <Route path="/login" element={<Login />} >
+
     </Route>
-    <Route path='/findGames' element={<FindGames />}>
+    <Route path="/findGames" element={<FindGames />}>
+
     </Route>
-      {/* <Route path="register" element={<Register />} /> */}
+    <Route path="/myGames" element={<MyGames />}>
+
+    </Route>
+    <Route path="/myFriends" element={<MyFriends />} >
+
+    </Route>
       {/* <Route path="profile" element={<Profile />} /> */}
   </Routes>
 </Router>

@@ -1,10 +1,9 @@
 import React from "react";
-import App from '../App.js'
+// import App from '../App.js'
 import Navbar from "../components/navbar.jsx";
-import axios from "axios";
-import { useState, useEffect } from "react";
+// import axios from "axios";
+import { useState } from "react";
 import AuthService from '../services/auth.service'
-// "../../services/auth.service";
 import { useNavigate } from 'react-router-dom';
 import { useGlobalState } from "../context/GlobalState";
 import jwtDecode from "jwt-decode";

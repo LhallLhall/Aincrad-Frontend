@@ -20,7 +20,8 @@ export default function navbar(){
         </li>
         <li className="nav-item">
           <Link to='/login' className="nav-link">Login</Link>
-          </li>
+        </li>
+        
         
         {/* <li class="nav-item"><a href="#" className="nav-link">Register</a></li> */}
         {/* <li class="nav-item"><a href="#" className="nav-link">Learn More</a></li> */}
