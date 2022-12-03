@@ -55,16 +55,25 @@ export default function FindGames(props) {
       Axios.get(
         `https://8000-lhalllhall-aincradbacke-leafyr8orcy.ws-us77.gitpod.io/games/search/${searchValue}`
       ).then((resp) => setData(resp.data));
+      // dispatch({
+      //   ...state,
+      //   gameSearch: data
+      // })
       inputField.value = "";
     } catch {
       alert('Search is Invalid')
     }
   };
 
-  function someFunction (game) {
-    <GamePage game={game}/>
-    navigate('/game')
+  function clickHandler (game) {
+    dispatch({
+    ...state,
+    selectedGame: game
+  })
+  navigate('/game')
   }
+
+
 
   // let gameScreen = (game) =>{
   //   // console.log('reach')
@@ -85,7 +94,7 @@ export default function FindGames(props) {
       <div key={game.id} className="col-4">
         <div className="text-center">
           <button onClick={() => 
-          someFunction(game)
+          clickHandler(game)
         } >
             {game.name}
           </button>
@@ -123,7 +132,7 @@ export default function FindGames(props) {
 
 
   return (
-    <div className="container">
+    <div className="container" >
       <div>
         <GameNavbar />
       </div>

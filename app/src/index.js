@@ -46,7 +46,7 @@ root.render(
 
     </Route>
     <Route path="/findGames" element={<FindGames/>}>
-      
+
     </Route>
     <Route path="/myGames" element={<MyGames />}>
 

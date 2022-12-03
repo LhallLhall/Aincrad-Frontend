@@ -24,7 +24,7 @@ function App() {
         <Navbar />
       
   
-        {/* <LandingHero /> */}
+        <LandingHero />
       
       
         <LearnMore />

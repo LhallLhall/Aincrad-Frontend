@@ -13,11 +13,11 @@ export default function LandingHero() {
     //     </div>
     //   </div>
 
-    <body className="d-flex h-100 text-center text-bg-dark">
+    <div className="d-flex h-100 text-center text-bg-dark mainBody">
       <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
         <header className="mb-auto">
           <div>
-            <h3 className="float-md-start mb-0">Cover</h3>
+            {/* <h3 className="float-md-start mb-0">Cover</h3>
             <nav className="nav nav-masthead justify-content-center float-md-end">
               <a
                 className="nav-link fw-bold py-1 px-0 active"
@@ -32,7 +32,7 @@ export default function LandingHero() {
               <a className="nav-link fw-bold py-1 px-0" href="#">
                 Contact
               </a>
-            </nav>
+            </nav> */}
           </div>
         </header>
 
@@ -45,8 +45,8 @@ export default function LandingHero() {
           </p>
           <p className="lead">
             <a
-              href="#"
-              className="btn btn-lg btn-secondary fw-bold border-white bg-white"
+              
+              className="btn btn-lg btn-secondary fw-bold border-white bg-dark"
             >
               Learn more
             </a>
@@ -54,7 +54,7 @@ export default function LandingHero() {
         </main>
 
         <footer className="mt-auto text-white-50">
-          <p>
+          {/* <p>
             Cover template for{" "}
             <a href="https://getbootstrap.com/" className="text-white">
               Bootstrap
@@ -64,10 +64,10 @@ export default function LandingHero() {
               @mdo
             </a>
             .
-          </p>
+          </p> */}
         </footer>
       </div>
-    </body>
+    </div>
 
     // <div classNameName='d-flex h-100 text-center text-bg-dark'>
     //   <div classNameName="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">

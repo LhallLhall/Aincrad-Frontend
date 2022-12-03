@@ -14,7 +14,7 @@ export default function navbar(){
         {/* <span class="fs-4">Simple header</span> */}
       {/* </a> */}
 
-      <ul className="nav nav-pills">
+      <ul className="nav nav-pills align-content-end">
         <li className="nav-item">
           <Link to='/'  className="nav-link" aria-current="page">Home</Link>
         </li>
