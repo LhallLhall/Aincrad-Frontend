@@ -5,6 +5,7 @@ export default function MyGames (){
     return (
         <>
         <GameNavbar />
+        <h1>Games</h1>
         </>
     )
 }

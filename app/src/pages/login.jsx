@@ -43,6 +43,7 @@ const Login = () => {
         <div>
       <Navbar />
       <div className="row d-flex justify-content-center align-items-center">
+        <h1 className='text-center pb-3'> Login Here </h1>
         <div className="col-12 pb-4 d-flex justify-content-center">
           <input id='usernameInput' onChange={usernameInput} type="text" placeholder="Username" />
         </div>

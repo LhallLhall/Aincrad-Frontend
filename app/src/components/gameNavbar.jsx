@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 
 export default function GameNavbar () {
     let navigate = useNavigate()
+    
 
     function Logout () {
         navigate('/')
@@ -26,11 +27,12 @@ export default function GameNavbar () {
                     <Link to='/myGames' className='nav-link'>My Games</Link>
                 </li>
                 <li className="nav-item">
-                    <button className='btn btn-primary' onClick={Logout}>Logout</button>
+                    <button className='btn btn-secondary' onClick={Logout}>Logout</button>
                 </li>
-                {/* <li className="nav-item">
-                    <Link to='/login' className="nav-link">Login</Link>
+                {/* <li>
+                    <Link to='/game' state={props.game}>as</Link>
                 </li> */}
+
             </ul>
         </header>
     </div>

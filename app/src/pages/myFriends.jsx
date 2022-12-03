@@ -5,6 +5,7 @@ export default function MyFriends (){
     return (
         <>
         <GameNavbar />
+        <h1>Friends</h1>
         </>
     )
 }

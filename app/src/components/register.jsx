@@ -31,8 +31,8 @@ const submit = () => {
 }
 
   return (
-    <div className='row d-flex justify-content-center align-items-center'>
-      {/* <h1>{state.currentUser}</h1> */}
+    <div className='border-top border-dark row d-flex justify-content-center align-items-center'>
+      <h2 className='pt-3 pb-3 text-center'>Register Here</h2>
     <div className="col-12 pb-4 d-flex justify-content-center">
       <input onChange={userNameInput} type="text" placeholder='Username'/>
     </div>

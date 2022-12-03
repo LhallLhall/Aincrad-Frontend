@@ -3,12 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
 // import Register from './components/register.jsx'
 // import Navbar from './components/navbar.jsx' 
 import Login from './pages/login.jsx'
 import FindGames from './pages/findGames.jsx'
 import MyFriends from './pages/myFriends.jsx'
 import MyGames from './pages/myGames.jsx'
+import GamePage from './components/gamePage.jsx'
 // import {useState, useEffect} from 'react';
 import { GlobalProvider } from './context/GlobalState';
 import {
@@ -20,6 +22,7 @@ import {
 } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 
 // function APICall (){
 //   const [data, setData] = useState([])
@@ -42,14 +45,17 @@ root.render(
     <Route path="/login" element={<Login />} >
 
     </Route>
-    <Route path="/findGames" element={<FindGames />}>
-
+    <Route path="/findGames" element={<FindGames/>}>
+      
     </Route>
     <Route path="/myGames" element={<MyGames />}>
 
     </Route>
     <Route path="/myFriends" element={<MyFriends />} >
 
+    </Route>
+    <Route path="/game" element={<GamePage/>}>
+      
     </Route>
       {/* <Route path="profile" element={<Profile />} /> */}
   </Routes>

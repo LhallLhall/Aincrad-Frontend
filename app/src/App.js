@@ -11,6 +11,7 @@ import { GlobalProvider } from './context/GlobalState';
 import Navbar from './components/navbar.jsx';
 import Register from './components/register.jsx'
 import LearnMore from './components/learnMore.jsx'
+import LandingHero from './components/landingHero.jsx'
 
 
 function App() {
@@ -18,12 +19,23 @@ function App() {
 
 
   return (
-    <>
-      <Navbar />
-      <LearnMore/>
-      <Register />
-      <Outlet />
-    </>
+    <div className='container' id='mainBody'>
+      
+        <Navbar />
+      
+  
+        {/* <LandingHero /> */}
+      
+      
+        <LearnMore />
+      
+      
+        <Register />
+      
+      
+        <Outlet />
+      
+    </div>
   )
 
   }

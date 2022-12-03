@@ -1,0 +1,1 @@
+# how to get items to directly link to another component
