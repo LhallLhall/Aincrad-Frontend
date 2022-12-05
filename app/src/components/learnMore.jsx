@@ -3,7 +3,7 @@ export default function learnMore (){
 
     return (
 
-        <div className='container pb-4'>
+        <div className='container pt-5 pb-4'>
             <div className='row'>
                 <div className='col-12 text-center'>
                     <header>

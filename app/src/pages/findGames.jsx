@@ -98,11 +98,11 @@ export default function FindGames(props) {
         } >
             {game.name}
           </button>
-          <p> Genres: {itemDisplay(game.genres)}</p>
+          {/* <p> Genres: {itemDisplay(game.genres)}</p>
           <p> Platforms: {itemDisplay(game.platforms)}</p>
-          <p> Release Date: {dateDisplay(game.release_dates)}</p>
+          <p> Release Date: {dateDisplay(game.release_dates)}</p> */}
           
-          <p>
+          {/* <p>
             {" "}
             <button
               className="btn btn-light"
@@ -124,7 +124,7 @@ export default function FindGames(props) {
                 {game.summary}
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     );
@@ -136,7 +136,7 @@ export default function FindGames(props) {
       <div>
         <GameNavbar />
       </div>
-      <div>
+      <div className='row pt-5'>
         <h1>Search For Game</h1>
         {/* <input placeholder='Game' id="inputField" className='form-control' onChange={search} type="text" />
         <button className='btn btn-secondary' onClick={submit}>Search</button> */}

@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 import { useGlobalState } from '../context/GlobalState.jsx'
 import { Link } from "react-router-dom"
 import axios from 'axios'
+import Navbar from './navbar.jsx';
 
 export default function Register () {
   const [username, setUsername] = useState("")
@@ -31,7 +32,9 @@ const submit = () => {
 }
 
   return (
-    <div className='border-top border-dark row d-flex justify-content-center align-items-center'>
+    <div>
+      <Navbar/>
+    <div className='row d-flex justify-content-center align-items-center'>
       <h2 className='pt-3 pb-3 text-center'>Register Here</h2>
     <div className="col-12 pb-4 d-flex justify-content-center">
       <input onChange={userNameInput} type="text" placeholder='Username'/>
@@ -45,5 +48,6 @@ const submit = () => {
       </Link>
     </div>
   </div>
+    </div>
     )
 }

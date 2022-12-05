@@ -1,94 +1,43 @@
 import React from "react";
+import { Link } from "react-router-dom";
 export default function LandingHero() {
   return (
-    //         <div classNameName="px-4 py-5 my-5 text-center">
-    //     {/* <img classNameName="d-block mx-auto mb-4" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> */}
-    //     <h1 classNameName="display-5 fw-bold">Centered hero</h1>
-    //     <div classNameName="col-lg-6 mx-auto">
-    //       <p classNameName="lead mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
-    //       <div classNameName="d-grid gap-2 d-sm-flex justify-content-sm-center">
-    //         <button type="button" classNameName="btn btn-primary btn-lg px-4 gap-3">Learn More!</button>
-    //         <button type="button" classNameName="btn btn-outline-secondary btn-lg px-4">Sign Up Now!</button>
-    //       </div>
-    //     </div>
-    //   </div>
-
-    <div className="d-flex h-100 text-center text-bg-dark mainBody">
-      <div className="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-        <header className="mb-auto">
-          <div>
-            {/* <h3 className="float-md-start mb-0">Cover</h3>
-            <nav className="nav nav-masthead justify-content-center float-md-end">
-              <a
-                className="nav-link fw-bold py-1 px-0 active"
-                aria-current="page"
-                href="#"
-              >
-                Home
-              </a>
-              <a className="nav-link fw-bold py-1 px-0" href="#">
-                Features
-              </a>
-              <a className="nav-link fw-bold py-1 px-0" href="#">
-                Contact
-              </a>
-            </nav> */}
-          </div>
+    <div className=" pt-5 d-flex h-100 text-center text-bg-dark mainBody blur">
+      <div className="cover-container d-flex w-100 h-75 h-s-100 p-3 mx-auto flex-column">
+        <header className="rounded darkColor mb-auto">
+          <div></div>
         </header>
 
-        <main className="px-3">
-          <h1>Cover your page.</h1>
-          <p className="lead">
-            Cover is a one-page template for building simple and beautiful home
-            pages. Download, edit the text, and add your own fullscreen
-            background photo to make it your own.
+        <main className="px-3 ">
+          <h1>Aincrad</h1>
+          <p className="lead blur">
+            Aincrad™ is an application for people track their games, hours
+            played, and friends! You can find games to add to your personal list
+            that you have either completed/played or games that you are
+            currently playing.
           </p>
-          <p className="lead">
-            <a
-              
-              className="btn btn-lg btn-secondary fw-bold border-white bg-dark"
-            >
-              Learn more
-            </a>
-          </p>
+          {/* <p className="lead px-3" > */}
+          <div className="row">
+            <div className="col-6">
+                <Link to='/register'>
+              <button className="btn btn-lg btn-secondary fw-bold  bg-secondary">
+                Sign Up
+              </button>
+                </Link>
+            </div>
+            <div className="col-6">
+              <Link to="/login">
+                <button className="btn btn-lg btn-secondary fw-bold  bg-secondary">
+                  Login
+                </button>
+              </Link>
+            </div>
+          </div>
+          {/* </p> */}
         </main>
 
-        <footer className="mt-auto text-white-50">
-          {/* <p>
-            Cover template for{" "}
-            <a href="https://getbootstrap.com/" className="text-white">
-              Bootstrap
-            </a>
-            , by{" "}
-            <a href="https://twitter.com/mdo" className="text-white">
-              @mdo
-            </a>
-            .
-          </p> */}
-        </footer>
+        <footer className="mt-auto text-white-50"></footer>
       </div>
     </div>
-
-    // <div classNameName='d-flex h-100 text-center text-bg-dark'>
-    //   <div classNameName="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-    //     <main classNameName="px-3">
-    //       <h1>Cover your page.</h1>
-    //       <p classNameName="lead">
-    //         Cover is a one-page template for building simple and beautiful home
-    //         pages. Download, edit the text, and add your own fullscreen
-    //         background photo to make it your own.
-    //       </p>
-    //       <p classNameName="lead">
-    //         <a
-
-    //           classNameName="btn btn-lg btn-secondary fw-bold border-white bg-white"
-    //         >
-    //           Learn more
-    //         </a>
-    //       </p>
-    //     </main>
-
-    //   </div>
-    // </div>
   );
 }

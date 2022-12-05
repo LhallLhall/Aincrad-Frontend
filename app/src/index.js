@@ -11,6 +11,7 @@ import FindGames from './pages/findGames.jsx'
 import MyFriends from './pages/myFriends.jsx'
 import MyGames from './pages/myGames.jsx'
 import GamePage from './components/gamePage.jsx'
+import Register from './components/register.jsx'
 // import {useState, useEffect} from 'react';
 import { GlobalProvider } from './context/GlobalState';
 import {
@@ -43,6 +44,9 @@ root.render(
 
     </Route>
     <Route path="/login" element={<Login />} >
+
+    </Route>
+    <Route path='/register' element={<Register />}>
 
     </Route>
     <Route path="/findGames" element={<FindGames/>}>

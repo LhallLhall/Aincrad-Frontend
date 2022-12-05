@@ -13,7 +13,11 @@ const initialState = {
     genre: [],
     platforms: [],
     cover: {},
-    release_dates: []
+    release_dates: [],
+    franchises: [],
+    companies: [],
+    storyline: '',
+    rating: 0
   },
   // gameSearch: []
 };

@@ -19,18 +19,18 @@ function App() {
 
 
   return (
-    <div className='container' id='mainBody'>
+    <div className='' id='mainBody'>
       
-        <Navbar />
+        {/* <Navbar /> */}
       
   
         <LandingHero />
       
       
-        <LearnMore />
+        {/* <LearnMore /> */}
       
       
-        <Register />
+        {/* <Register /> */}
       
       
         <Outlet />
