@@ -91,16 +91,17 @@ export default function FindGames(props) {
   console.log(data);
   let mappedData = data.map((game, i) => {
     return (
-      <div key={game.id} className="col-4">
+      <div key={game.id} className="col-12 col-md-4 col-sm-6">
         <div className="text-center">
+          <h3>{game.name}</h3>
           <button onClick={() => 
           clickHandler(game)
         } >
-            {game.name}
+            See More
           </button>
-          {/* <p> Genres: {itemDisplay(game.genres)}</p>
+          <p> Genres: {itemDisplay(game.genres)}</p>
           <p> Platforms: {itemDisplay(game.platforms)}</p>
-          <p> Release Date: {dateDisplay(game.release_dates)}</p> */}
+          <p> Release Date: {dateDisplay(game.release_dates)}</p>
           
           {/* <p>
             {" "}

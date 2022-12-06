@@ -1,18 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import GameNavbar from "./gameNavbar.jsx";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 import { useGlobalState } from "../context/GlobalState.jsx";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import math from 'react'
+import Axios from "axios";
+import request from "../services/api.request.jsx";
 
 export default function GamePage() {
+  let [game, setGame] = useState()
   let [state, dispatch] = useGlobalState();
   let navigate = useNavigate();
   console.log(state);
-  // let params = useParams()
-  // games.find(game => game.id === params.id)
-
+  
   function itemDisplay(item) {
     if (!item) {
       return;
@@ -23,20 +24,21 @@ export default function GamePage() {
     }
     return itemStr;
   }
-
+  
   function companyDisplay(item){
     if(!item){
-        return;
+      return;
     }
     let companyStr = ''
     for (let i = 0; i < item.length; i++){
-        // companyStr += ' ' + item[0].company.name
-        for(let y =0; y < item[i].length; y++) {
-            companyStr += ' ' + item[i].company.name
-        }
+      // companyStr += ' ' + item[0].company.name
+      for(let y =0; y < item[i].length; y++) {
+        console.log(item[y].name)
+        companyStr += ' ' + item[y].name
+      }
     }
   }
-
+  
   function dateDisplay(item) {
     if (!item) {
       return;
@@ -45,15 +47,49 @@ export default function GamePage() {
     itemStr += item[0].human;
     return itemStr;
   }
+  
+  
+  
+  
+  
+  async function postGameToDatabase(){
+    let options = {
+      url: 'game/',
+      method: 'POST',
+      data: {
+        "game_id": state.selectedGame.id,
+        "name": state.selectedGame.name,
+        "summary": state.selectedGame.summary,
+        "release_date": dateDisplay(state.selectedGame.release_dates),
+        "genre": "Shooter",
+        "rating": Math.ceil(state.selectedGame.rating),
+        "platform": itemDisplay(state.selectedGame.platforms),
+        "company": "None",
+        "completed": false,
+        "storyline": state.selectedGame.storyline
+      }
+    }
+    let resp = await request(options)
+    console.log(resp)
+  }
+
+
   return (
     <div className="container">
       <GameNavbar />
       <div className="row">
         <div className="col-4 offset-4 text-center">
-          <h3>{state.selectedGame.name}</h3>
+          <h2>{state.selectedGame.name}</h2>
 
           <h5>{itemDisplay(state.selectedGame.platforms)}</h5>
           <h5>{dateDisplay(state.selectedGame.release_dates)}</h5>
+          <div className='pt-2'>
+            <button className='btn btn-secondary' onClick={postGameToDatabase}>
+              <h4>
+                Add Game To "My Games"
+              </h4>
+            </button>
+          </div>
         </div>
       </div>
       <div className="row pt-5 mt-3 justify-content-evenly ">

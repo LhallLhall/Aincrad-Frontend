@@ -14,53 +14,60 @@ export default function GameNavbar() {
 
   return (
     <div className="container">
-      <nav class="navbar bg-light ">
-        <div class="container-fluid">
-          <Link class="navbar-brand" to='/findGames'>
-            Aincrad
+      <nav className="navbar bg-light ">
+        <div className="container-fluid">
+          <Link className="navbar-brand" to='/findGames'>
+              <h2>
+                Aincrad
+              </h2>
           </Link>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
           <div
-            class="offcanvas offcanvas-end"
-            tabindex="-1"
+            className="offcanvas offcanvas-end"
+            tabIndex="-1"
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"
           >
-            <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+            <div className="offcanvas-header">
+              <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
                 Aincrad
               </h5>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="offcanvas"
                 aria-label="Close"
               ></button>
             </div>
-            <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <li class="nav-item">
-                  <Link class="nav-link" aria-current="page" to="/findGames">
+            <div className="offcanvas-body">
+              <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li className="nav-item">
+                  <Link className="nav-link" aria-current="page" to="/findGames">
                     Find Games
                   </Link>
                 </li>
-                <li class="nav-item">
-                  <Link class="nav-link" aria-current="page" to="/myFriends">
+                <li className="nav-item">
+                  <Link className="nav-link" aria-current="page" to="/myFriends">
                     My Friends
                   </Link>
                 </li>
-                <li class="nav-item">
-                  <Link class="nav-link" to="/myGames">
+                <li className="nav-item">
+                  <Link className="nav-link" to="/myGames">
                     My Games
                   </Link>
+                </li>
+                <li className="nav-item pt-1">
+                  <button className=' btn btn-secondary' onClick={Logout}>
+                    Logout
+                  </button>
                 </li>
               </ul>
             </div>

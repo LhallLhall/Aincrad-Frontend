@@ -8,6 +8,7 @@ const initialState = {
   currentUser: user ? jwtDecode(user.access) : null,
   currentUserToken: user ? user.access : null,
   selectedGame: {
+    id: 0,
     name: '',
     summary: '',
     genre: [],
