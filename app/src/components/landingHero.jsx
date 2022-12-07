@@ -9,8 +9,8 @@ export default function LandingHero() {
         </header>
 
         <main className="px-3 ">
-          <h1>Aincrad</h1>
-          <p className="lead blur">
+          <h1 className='mainFont' id='mainFont'>Aincrad</h1>
+          <p className="lead">
             Aincrad™ is an application for people track their games, hours
             played, and friends! You can find games to add to your personal list
             that you have either completed/played or games that you are
@@ -20,15 +20,15 @@ export default function LandingHero() {
           <div className="row">
             <div className="col-6">
                 <Link to='/register'>
-              <button className="btn btn-lg btn-secondary fw-bold  bg-secondary">
-                Sign Up
+              <button className="btn btn-lg fw-bold btn_color">
+                <div className='text_color'>Sign Up</div>
               </button>
                 </Link>
             </div>
             <div className="col-6">
               <Link to="/login">
-                <button className="btn btn-lg btn-secondary fw-bold  bg-secondary">
-                  Login
+                <button className="btn btn-lg fw-bold btn_color">
+                <div className='text_color'>Login</div>
                 </button>
               </Link>
             </div>

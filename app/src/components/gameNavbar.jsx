@@ -2,6 +2,7 @@ import React from "react";
 import AuthService from "../services/auth.service";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import imgSRC from './icon.png'
 
 export default function GameNavbar() {
   let navigate = useNavigate();
@@ -14,13 +15,17 @@ export default function GameNavbar() {
 
   return (
     <div className="container">
-      <nav className="navbar bg-light ">
+      <nav className="navbar navbar-expand-lg ">
         <div className="container-fluid">
           <Link className="navbar-brand" to='/findGames'>
-              <h2>
-                Aincrad
-              </h2>
+              <img src={imgSRC} className='rounded img' height='60vh' width="76vw">
+              </img>
           </Link>
+          <div className='text-center pe-5'>
+            <h1 className='mainFont'>
+              Aincrad
+            </h1>
+          </div>
           <button
             className="navbar-toggler"
             type="button"
@@ -64,7 +69,7 @@ export default function GameNavbar() {
                     My Games
                   </Link>
                 </li>
-                <li className="nav-item pt-1">
+                <li className="nav-item pt-1 ps-2">
                   <button className=' btn btn-secondary' onClick={Logout}>
                     Logout
                   </button>

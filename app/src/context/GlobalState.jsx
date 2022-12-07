@@ -11,7 +11,7 @@ const initialState = {
     id: 0,
     name: '',
     summary: '',
-    genre: [],
+    genres: [],
     platforms: [],
     cover: {},
     release_dates: [],
