@@ -52,9 +52,11 @@
   width: 100vw;
 }
 
-/* .landingHero {
-  
-} */
+.findGamesHeight {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(94, 94, 94);
+}
 
 /*
  * Globals
@@ -103,6 +105,10 @@ backdrop-filter: blur(3px);
   color: rgb(255, 255, 255);
 }
 
+.text_color_purple {
+  color:rgb(78, 14, 78) !important;
+}
+
 .navBlur {
   backdrop-filter: blur(4px);
 }
@@ -122,8 +128,17 @@ backdrop-filter: blur(3px);
   background-repeat: no-repeat;
   background-position: fixed;
   height: 100vh;
-  background-blend-mode: color-dodge !important;
+  /* background-blend-mode: color-dodge !important; */
 
+ }
+
+ .find_games_img {
+  background-blend-mode: color-dodge !important;
+  background: url("https://images.unsplash.com/photo-1557682250-33bd709cbe85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHVycGxlJTIwYmFja2dyb3VuZHxlbnwwfHwwfHw%3D&w=1000&q=80") no-repeat center center fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: fixed;
+  height: 100vh;
  }
 
 .mainBody {
@@ -147,7 +162,7 @@ backdrop-filter: blur(3px);
  */
 
 .nav-masthead .nav-link {
-  color: rgba(255, 255, 255, .5);
+  color: rgb(78, 14, 78);
   border-bottom: .25rem solid transparent;
 }
 

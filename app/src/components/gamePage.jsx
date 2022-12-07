@@ -3,15 +3,16 @@ import GameNavbar from "./gameNavbar.jsx";
 // import { useLocation } from "react-router-dom";
 import { useGlobalState } from "../context/GlobalState.jsx";
 // import { useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import math from "react";
-import Axios from "axios";
+// import { useNavigate } from "react-router-dom";
+// import math from "react";
+// import Axios from "axios";
 import request from "../services/api.request.jsx";
 
 export default function GamePage() {
-  let [game, setGame] = useState();
-  let [state, dispatch] = useGlobalState();
-  let navigate = useNavigate();
+  // let [game, setGame] = useState();
+  let [addedToMyGames, setAddedToMyGames] = useState(true);
+  let [state,] = useGlobalState();
+  // let navigate = useNavigate();
   console.log(state);
 
   function itemDisplay(item) {
@@ -26,19 +27,19 @@ export default function GamePage() {
     return itemStr;
   }
 
-  function companyDisplay(item) {
-    if (!item) {
-      return;
-    }
-    let companyStr = "";
-    for (let i = 0; i < item.length; i++) {
-      // companyStr += ' ' + item[0].company.name
-      for (let y = 0; y < item[i].length; y++) {
-        console.log(item[y].name);
-        companyStr += " " + item[y].name;
-      }
-    }
-  }
+  // function companyDisplay(item) {
+  //   if (!item) {
+  //     return;
+  //   }
+  //   let companyStr = "";
+  //   for (let i = 0; i < item.length; i++) {
+  //     // companyStr += ' ' + item[0].company.name
+  //     for (let y = 0; y < item[i].length; y++) {
+  //       console.log(item[y].name);
+  //       companyStr += " " + item[y].name;
+  //     }
+  //   }
+  // }
 
   function dateDisplay(item) {
     if (!item) {
@@ -69,29 +70,33 @@ export default function GamePage() {
           storyline: state.selectedGame.storyline,
         },
       };
-      // let resp = await request(options)
-      // console.log(resp)
+
+      await request(options)
 
       let payload = {
-        url: `addGameToUser/${state.currentUser.user_id}/${state.selectedGame.id}/`,
+        url: `addGameToUser/${state.selectedGame.id}/`,
         method: "POST",
-        data: {
-          game_id: state.selectedGame.id,
-          name: state.selectedGame.name,
-          summary: state.selectedGame.summary,
-          release_date: dateDisplay(state.selectedGame.release_dates),
-          rating: Math.ceil(state.selectedGame.rating),
-          platform: itemDisplay(state.selectedGame.platforms),
-          genre: itemDisplay(state.selectedGame.genres),
-          company: "None",
-          completed: false,
-          storyline: state.selectedGame.storyline,
-        },
+        // data: {
+        //   game_id: state.selectedGame.id,
+        //   name: state.selectedGame.name,
+        //   summary: state.selectedGame.summary,
+        //   release_date: dateDisplay(state.selectedGame.release_dates),
+        //   rating: Math.ceil(state.selectedGame.rating),
+        //   platform: itemDisplay(state.selectedGame.platforms),
+        //   genre: itemDisplay(state.selectedGame.genres),
+        //   company: "None",
+        //   completed: false,
+        //   storyline: state.selectedGame.storyline,
+        // },
       };
       let response = await request(payload);
       console.log(response);
 
-      alert("Game Successfully Added To My Games");
+      if (response.status === 200) {
+        setAddedToMyGames(!addedToMyGames);
+      }
+
+      // alert("Game Successfully Added To My Games");
     } catch {
       alert("Uh oh there was an error");
     }
@@ -108,7 +113,7 @@ export default function GamePage() {
           <h5>{dateDisplay(state.selectedGame.release_dates)}</h5>
           <div className="pt-2">
             <button className="btn btn-secondary" onClick={postGameToDatabase}>
-              <h4>Add Game To "My Games"</h4>
+              <h5>{addedToMyGames ? 'Add to My Games' : 'Remove from My Games'}</h5>
             </button>
           </div>
         </div>
@@ -133,7 +138,7 @@ export default function GamePage() {
             </div>
             <div>
               <h5>Company/s:</h5>
-              <p>{companyDisplay(state.selectedGame.companies)}</p>
+              {/* <p>{companyDisplay(state.selectedGame.companies)}</p> */}
             </div>
             <div>
               <h5>Rating:</h5>
@@ -152,53 +157,4 @@ export default function GamePage() {
   );
 }
 
-// <div class="card-body">
-//   <div class="row">
-//     <div class="col-6 col-md-2">
-//       <label>Platforms</label>
-//       <div>
-//         {/* <a href="/Game?platform=mac">
-//                                     <img class="float-start icon platform-icon" src="/images/platforms/mac.svg" alt="Mac logo" title="Mac">
-//                                 </a>
-//                                 <a href="/Game?platform=win">
-//                                     <img class="float-start icon platform-icon" src="/images/platforms/windows.svg" alt="PC (Microsoft Windows) logo" title="PC (Microsoft Windows)">
-//                                 </a>
-//                                 <a href="/Game?platform=xbox">
-//                                     <img class="float-start icon platform-icon" src="/images/platforms/xbox.svg" alt="Xbox logo" title="Xbox">
-//                                 </a>
-//                                 <a href="/Game?platform=xbox360">
-//                                     <img class="float-start icon platform-icon" src="/images/platforms/xbox.svg" alt="Xbox 360 logo" title="Xbox 360">
-//                                 </a> */}
-//       </div>
-//     </div>
-//     <div class="col-6 col-md-2">
-//       <label>Released</label>
-//       <p>{}</p>
-//     </div>
-//     <div class="col-6 col-md-2">
-//       <label>Developers</label>
-//       <p>
-//         <p>{}</p>{" "}
-//       </p>
-//     </div>
-//     {/* <div class="col-6 col-md-2">
-//       <label>Publishers</label>
-//       <p>
-//         <a href="/Game?publisher=macsoft-games">MacSoft Games,</a>&nbsp;
-//         <a href="/Game?publisher=microsoft-game-studios">
-//           Microsoft Game Studios
-//         </a>{" "}
-//       </p>
-//     </div> */}
-//     <div class="col-6 col-md-2">
-//       <label>Genres</label>
-//       <p>
-//         <p>{}</p>{" "}
-//       </p>
-//     </div>
-//     {/* <div class="col-6 col-md-2 text-center">
-//       <label>Average Rating</label>
-//       <h2>85</h2>
-//     </div> */}
-//   </div>
-// </div>;
+

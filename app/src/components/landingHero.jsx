@@ -10,7 +10,7 @@ export default function LandingHero() {
 
         <main className="px-3 ">
           <h1 className='mainFont' id='mainFont'>Aincrad</h1>
-          <p className="lead">
+          <p className="lead blur">
             Aincrad™ is an application for people track their games, hours
             played, and friends! You can find games to add to your personal list
             that you have either completed/played or games that you are

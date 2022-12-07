@@ -2,16 +2,15 @@ import React, { useState } from "react";
 import { useGlobalState } from "../context/GlobalState";
 import Axios from "axios";
 import GameNavbar from "../components/gameNavbar.jsx";
-import GamePage from '../components/gamePage.jsx'
-import { useNavigate } from 'react-router-dom';
-import {
-  BrowserRouter as Router,
-  // Switch,
-  // Route,
-  Link,
-  // Routes,
-} from "react-router-dom";
-
+// import GamePage from "../components/gamePage.jsx";
+import { useNavigate } from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   // Switch,
+//   // Route,
+//   Link,
+//   // Routes,
+// } from "react-router-dom";
 
 function itemDisplay(item) {
   if (!item) {
@@ -19,7 +18,7 @@ function itemDisplay(item) {
   }
   let itemStr = "";
   for (let i = 0; i < item.length; i++) {
-    itemStr += " " + item[i].name ;
+    itemStr += " " + item[i].name;
   }
   return itemStr;
 }
@@ -34,12 +33,12 @@ function dateDisplay(item) {
 }
 
 export default function FindGames(props) {
-  const [gameData, setGameData] = useState({})
+  // const [gameData, setGameData] = useState({});
   const [state, dispatch] = useGlobalState();
   const [data, setData] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   let inputField = document.getElementById("inputField");
-  let navigate = useNavigate()
+  let navigate = useNavigate();
   // useEffect(() => {
   //     Axios.get('https://8000-lhalllhall-aincradbacke-leafyr8orcy.ws-us77.gitpod.io/games/api/')
   //         .then((resp) => setData(resp.data));
@@ -61,19 +60,17 @@ export default function FindGames(props) {
       // })
       inputField.value = "";
     } catch {
-      alert('Search is Invalid')
+      alert("Search is Invalid");
     }
   };
 
-  function clickHandler (game) {
+  function clickHandler(game) {
     dispatch({
-    ...state,
-    selectedGame: game
-  })
-  navigate('/game')
+      ...state,
+      selectedGame: game,
+    });
+    navigate("/game");
   }
-
-
 
   // let gameScreen = (game) =>{
   //   // console.log('reach')
@@ -81,10 +78,10 @@ export default function FindGames(props) {
   //   return (
   //     <>
   //     <GamePage game={game}/>
-  //     {console.log(game)} 
+  //     {console.log(game)}
   //     {navigate('/game')}
   //     </>
-      
+
   //   )
   // }
 
@@ -94,15 +91,11 @@ export default function FindGames(props) {
       <div key={game.id} className="col-12 col-md-4 col-sm-6">
         <div className="text-center">
           <h3>{game.name}</h3>
-          <button onClick={() => 
-          clickHandler(game)
-        } >
-            See More
-          </button>
+          <button onClick={() => clickHandler(game)}>See More</button>
           <p> Genres: {itemDisplay(game.genres)}</p>
           <p> Platforms: {itemDisplay(game.platforms)}</p>
           <p> Release Date: {dateDisplay(game.release_dates)}</p>
-          
+
           {/* <p>
             {" "}
             <button
@@ -131,23 +124,39 @@ export default function FindGames(props) {
     );
   });
 
-
   return (
-    <div className="container" >
+    <div className="findGamesHeight">
       <div>
         <GameNavbar />
       </div>
-      <div className='row pt-5'>
-        <h1>Search For Game</h1>
-        {/* <input placeholder='Game' id="inputField" className='form-control' onChange={search} type="text" />
+      <div className='container'>
+        <div className="row pt-5">
+          <h1>Search For A Game</h1>
+          {/* <input placeholder='Game' id="inputField" className='form-control' onChange={search} type="text" />
         <button className='btn btn-secondary' onClick={submit}>Search</button> */}
-        <div className="input-group mb-3">
-          <input type="text" className="form-control" onChange={search} id="inputField" placeholder="Game" aria-label="Recipient's username" aria-describedby="button-addon2"/>
-          <button className="btn btn-outline-secondary" onClick={submit} type="button" id="button-addon2">Search</button>
+          <div className="input-group mb-3">
+            <input
+              type="text"
+              className="form-control"
+              onChange={search}
+              id="inputField"
+              placeholder="Game"
+              aria-label="Recipient's username"
+              aria-describedby="button-addon2"
+            />
+            <button
+              className="btn btn_color"
+              onClick={submit}
+              type="button"
+              id="button-addon2"
+            >
+              <div className="text_color">Search</div>
+            </button>
+          </div>
         </div>
-      </div>
-      <div className="row pt-4 d-flex justify-content-center align-content-center">
-        {mappedData}
+        <div className="row pt-4 d-flex justify-content-center align-content-center overflow-scroll">
+          {mappedData}
+        </div>
       </div>
     </div>
   );
