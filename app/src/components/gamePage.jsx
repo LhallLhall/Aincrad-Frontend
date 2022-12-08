@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import GameNavbar from "./gameNavbar.jsx";
-// import { useLocation } from "react-router-dom";
 import { useGlobalState } from "../context/GlobalState.jsx";
-// import { useParams } from "react-router-dom";
-// import { useNavigate } from "react-router-dom";
-// import math from "react";
-// import Axios from "axios";
 import request from "../services/api.request.jsx";
 
 export default function GamePage() {
@@ -23,7 +18,7 @@ export default function GamePage() {
     for (let i = 0; i < item.length; i++) {
       itemStr += "  " + item[i].name;
     }
-    console.log(itemStr);
+    // console.log(itemStr);
     return itemStr;
   }
 
@@ -54,6 +49,19 @@ export default function GamePage() {
 
   async function postGameToDatabase() {
     try {
+      console.log(addedToMyGames)
+      if (addedToMyGames === false){
+        let deleteOptions = {
+          url: `addGameToUser/${state.selectedGame.id}/`,
+          method: "DELETE"
+          
+        }
+        let res = await request(deleteOptions)
+        console.log(res)
+        setAddedToMyGames(!addedToMyGames)
+        return
+      }
+
       let options = {
         url: "game/",
         method: "POST",
@@ -76,24 +84,13 @@ export default function GamePage() {
       let payload = {
         url: `addGameToUser/${state.selectedGame.id}/`,
         method: "POST",
-        // data: {
-        //   game_id: state.selectedGame.id,
-        //   name: state.selectedGame.name,
-        //   summary: state.selectedGame.summary,
-        //   release_date: dateDisplay(state.selectedGame.release_dates),
-        //   rating: Math.ceil(state.selectedGame.rating),
-        //   platform: itemDisplay(state.selectedGame.platforms),
-        //   genre: itemDisplay(state.selectedGame.genres),
-        //   company: "None",
-        //   completed: false,
-        //   storyline: state.selectedGame.storyline,
-        // },
       };
       let response = await request(payload);
       console.log(response);
 
       if (response.status === 200) {
         setAddedToMyGames(!addedToMyGames);
+        console.log(addedToMyGames)
       }
 
       // alert("Game Successfully Added To My Games");
@@ -132,10 +129,10 @@ export default function GamePage() {
               <h5>Genres:</h5>
               <p>{itemDisplay(state.selectedGame.genres)}</p>
             </div>
-            <div>
+            {/* <div>
               <h5>Franchise/s:</h5>
               <p>{itemDisplay(state.selectedGame.franchises)}</p>
-            </div>
+            </div> */}
             <div>
               <h5>Company/s:</h5>
               {/* <p>{companyDisplay(state.selectedGame.companies)}</p> */}

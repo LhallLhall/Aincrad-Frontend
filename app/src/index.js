@@ -14,6 +14,7 @@ import GamePage from './components/gamePage.jsx'
 import Register from './components/register.jsx'
 // import {useState, useEffect} from 'react';
 import { GlobalProvider } from './context/GlobalState';
+import GameList from './pages/gameList.jsx'
 import {
   BrowserRouter as Router,
   // Switch,
@@ -59,6 +60,9 @@ root.render(
 
     </Route>
     <Route path="/game" element={<GamePage/>}>
+      
+    </Route>
+    <Route path="/myGames/game" element={<GameList/>}>
       
     </Route>
       {/* <Route path="profile" element={<Profile />} /> */}

@@ -20,6 +20,20 @@ const initialState = {
     storyline: '',
     rating: 0
   },
+  gameList: {
+    id: 0,
+    game_id: 0,
+    name: '',
+    genres: '',
+    platforms: "",
+    completed: false,
+    release_dates: '',
+    franchises: '',
+    companies: '',
+    storyline: '',
+    summary: '',
+    rating: 0,
+  }
   // gameSearch: []
 };
 

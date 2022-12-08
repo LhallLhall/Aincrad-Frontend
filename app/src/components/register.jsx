@@ -1,9 +1,10 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { useGlobalState } from "../context/GlobalState.jsx";
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+// import { useGlobalState } from "../context/GlobalState.jsx";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Navbar from "./navbar.jsx";
+
 
 export default function Register() {
   const [username, setUsername] = useState("");
@@ -33,7 +34,7 @@ export default function Register() {
       return alert("Not a valid Username or Password");
     }
     axios.post(
-      "https://8000-lhalllhall-aincradbacke-leafyr8orcy.ws-us77.gitpod.io/games/user/create/",
+      "https://8000-lhalllhall-aincradbacke-leafyr8orcy.ws-us78.gitpod.io//games/user/create/",
       {
         username: username,
         password: password,

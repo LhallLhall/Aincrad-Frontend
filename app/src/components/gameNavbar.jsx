@@ -18,7 +18,7 @@ export default function GameNavbar() {
       <nav className="navbar navbar-expand-lg ">
         <div className="container-fluid">
           <Link className="navbar-brand" to='/findGames'>
-              <img src={imgSRC} className='rounded img' height='60vh' width="76vw">
+              <img src={imgSRC} alt="logo" className='rounded img' height='60vh' width="76vw">
               </img>
           </Link>
           <div className='text-center pe-5'>
@@ -82,21 +82,4 @@ export default function GameNavbar() {
     </div>
   );
 }
-{
-  /* <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-    <ul className="nav nav-pills">
-        <li className='nav-item'>
-            <Link to='/findGames' className='nav-link'>Find Games</Link>
-        </li>
-        <li className='nav-item'>
-            <Link to='/myFriends' className='nav-link'>My Friends</Link>
-        </li>
-        <li className='nav-item'>
-            <Link to='/myGames' className='nav-link'>My Games</Link>
-        </li>
-        <li className="nav-item">
-            <button className='btn btn-secondary' onClick={Logout}>Logout</button>
-        </li>
-    </ul>
-</header> */
-}
+
