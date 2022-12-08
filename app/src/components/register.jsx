@@ -51,7 +51,7 @@ export default function Register() {
       <Navbar />
       <div className="row h-75 d-flex justify-content-center align-items-center">
         <div className="col-8 col-sm-4 col-md-4 col-lg-4">
-          <h2 className="pt-3 pb-3 text-center">Register Here</h2>
+          <h1 className="pt-3 pb-3 text-center text_color">Register Here</h1>
           <div className="col-12 pb-4 d-flex justify-content-center">
             <input
               onChange={userNameInput}

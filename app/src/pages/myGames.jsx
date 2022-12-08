@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 import GameNavbar from "../components/gameNavbar.jsx";
 import { useGlobalState } from "../context/GlobalState.jsx";
 import request from "../services/api.request.jsx";
@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 export default function MyGames() {
   let [games, setGames] = useState([]);
   let [state, dispatch] = useGlobalState();
-  let navigate = useNavigate
+  let navigate = useNavigate()
 
   useEffect(() => {
     async function grabUsersGames() {

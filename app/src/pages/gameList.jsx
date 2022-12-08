@@ -2,18 +2,21 @@ import React from "react";
 import { useGlobalState } from "../context/GlobalState";
 import GameNavbar from "../components/gameNavbar";
 import request from "../services/api.request";
+import { useNavigate } from "react-router-dom";
 
 export default function GameList () {
     let [state,] = useGlobalState();
+    let navigate = useNavigate()
 
     async function deleteUserToGameConnectionFromDatabase (){
         let deleteOptions = {
-            url: `addGameToUser/${state.gameList.id}/`,
+            url: `addGameToUser/${state.gameList.game_id}/`,
             method: "DELETE"
             
         }
         let res = await request(deleteOptions)
         console.log(res)
+        navigate('/myGames')
     }
 
     return (

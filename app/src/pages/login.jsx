@@ -43,7 +43,7 @@ const Login = () => {
       <Navbar />
       <div className="row h-75 d-flex justify-content-center align-items-center">
         <div className="col-8 col-sm-4 col-md-4 col-lg-4">
-          <h1 className="text-center pb-3 text_color "> Login Here </h1>
+          <h1 className="text-center pt-3 pb-3 text_color "> Login Here </h1>
           <div className="col-12 pb-4 d-flex justify-content-center">
             <input
               id="usernameInput"
@@ -56,7 +56,7 @@ const Login = () => {
             <input
               id="passwordInput"
               onChange={passwordInput}
-              type="text"
+              type="password"
               placeholder="Password"
             />
           </div>

@@ -76,13 +76,13 @@ export default function FindGames(props) {
   console.log(data);
   let mappedData = data.map((game, i) => {
     return (
-      <div key={game.id} className="col-12 col-md-4 col-sm-6">
-        <div className="text-center">
-          <h3>{game.name}</h3>
-          <button className='btn btn-secondary' onClick={() => clickHandler(game)}>See More</button>
-          <p> Genres: {itemDisplay(game.genres)}</p>
-          <p className=''> Platforms: {itemDisplay(game.platforms)}</p>
-          <p> Release Date: {dateDisplay(game.release_dates)}</p>
+      <div key={game.id} className=" py-3 border border-3 border-dark bg-purple col-12 col-md-4 col-sm-6">
+        <div className="text-center ">
+          <h3 className='text_color'>{game.name}</h3>
+          <button className='text_color btn btn-secondary' onClick={() => clickHandler(game)}>See More</button>
+          <p className='text_color m-0'> Genres: {itemDisplay(game.genres)}</p>
+          <p className='text_color m-0'> Platforms: {itemDisplay(game.platforms)}</p>
+          <p className='text_color m-0'> Release Date: {dateDisplay(game.release_dates)}</p>
         </div>
       </div>
     );
@@ -117,9 +117,14 @@ export default function FindGames(props) {
             </button>
           </div>
         </div>
-        <div className="row pt-4 d-flex justify-content-center align-content-center ">
-          {mappedData}
+        <div className=''>
+          <div className="row pt-4 d-flex justify-content-center align-content-center ">
+            {mappedData}
+          </div>
         </div>
+      </div>
+      <div>
+        {"FOOTER HERE"}
       </div>
     </div>
   );

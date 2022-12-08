@@ -47,6 +47,10 @@
   background-color: rgb(78, 14, 78) !important;
 }
 
+.bg-purple {
+  background-color: rgba(45, 10, 45, 0.494) !important;
+}
+
 #mainBody {
   height: 100vh;
   width: 100vw;

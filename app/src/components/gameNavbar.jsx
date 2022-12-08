@@ -17,7 +17,7 @@ export default function GameNavbar() {
     <div className="container">
       <nav className="navbar navbar-expand-lg ">
         <div className="container-fluid">
-          <Link className="navbar-brand" to='/findGames'>
+          <Link className="navbar-brand" to='/'>
               <img src={imgSRC} alt="logo" className='rounded img' height='60vh' width="76vw">
               </img>
           </Link>
