@@ -22,7 +22,7 @@ export default function GameNavbar() {
               </img>
           </Link>
           <div className='text-center pe-5'>
-            <h1 className='mainFont text_color_purple ps-3'>
+            <h1 className='m-0 mainFont text_color_purple ps-3'>
               Aincrad
             </h1>
           </div>
@@ -59,17 +59,17 @@ export default function GameNavbar() {
                     Find Games
                   </Link>
                 </li>
-                <li className="nav-item">
+                {/* <li className="nav-item">
                   <Link className="nav-link text_color_purple" aria-current="page" to="/myFriends">
                     My Friends
                   </Link>
-                </li>
+                </li> */}
                 <li className="nav-item">
                   <Link className="nav-link text_color_purple" to="/myGames">
                     My Games
                   </Link>
                 </li>
-                <li className="nav-item pt-1 ps-2">
+                <li className="nav-item ps-2">
                   <button className=' btn btn-dark' onClick={Logout}>
                     <div className='text_color'>Logout</div>
                   </button>

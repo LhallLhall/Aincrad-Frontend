@@ -18,7 +18,8 @@ const initialState = {
     franchises: [],
     companies: [],
     storyline: '',
-    rating: 0
+    rating: 0,
+    // artworks: []
   },
   gameList: {
     id: 0,
@@ -33,7 +34,19 @@ const initialState = {
     storyline: '',
     summary: '',
     rating: 0,
-  }
+    cover: ''
+  },
+  usergame: {
+    completed: false,
+    created_at: "",
+    game: 0,
+    hours_played: null,
+    id: 0,
+    timer_started: null,
+    timer_status: false,
+    updated_at: "",
+    user: 1
+}
   // gameSearch: []
 };
 

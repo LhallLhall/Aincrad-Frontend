@@ -4,6 +4,7 @@ import Axios from "axios";
 import GameNavbar from "../components/gameNavbar.jsx";
 // import GamePage from "../components/gamePage.jsx";
 import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 // import {
 //   BrowserRouter as Router,
 //   // Switch,
@@ -32,6 +33,39 @@ function dateDisplay(item) {
   return itemStr;
 }
 
+function imgCoverDisplay(cover, name) {
+  let itemStr = `https://via.placeholder.com/286x381/603d60/FFFFFF?text=${name}`;
+  if (!cover) {
+    return itemStr;
+  }
+
+  itemStr = cover.url;
+  let newStr = itemStr.replace("t_thumb", "t_original");
+  // console.log(newStr);
+
+  // console.log(itemStr[1])
+  return newStr;
+}
+
+function imgArtworksDisplay(artworks) {
+  // if()
+  let itemStr = artworks[0].url;
+  let newStr = itemStr.replace("t_thumb", "t_original");
+  console.log(newStr);
+
+  // console.log(itemStr[1])
+  return newStr;
+}
+
+function grabHeight(item) {
+  if (!item) {
+    return;
+  }
+  let itemInt = 0;
+  item += item[0].height;
+  return itemInt;
+}
+
 export default function FindGames(props) {
   // const [gameData, setGameData] = useState({});
   const [state, dispatch] = useGlobalState();
@@ -54,13 +88,9 @@ export default function FindGames(props) {
       Axios.get(
         `https://8000-lhalllhall-aincradbacke-leafyr8orcy.ws-us78.gitpod.io/games/search/${searchValue}`
       ).then((resp) => setData(resp.data));
-      // dispatch({
-      //   ...state,
-      //   gameSearch: data
-      // })
       inputField.value = "";
     } catch {
-      alert("Search is Invalid");
+      alert("Search Was Invalid");
     }
   };
 
@@ -72,17 +102,29 @@ export default function FindGames(props) {
     navigate("/game");
   }
 
-
   console.log(data);
   let mappedData = data.map((game, i) => {
+    let img_path = `https://via.placeholder.com/286x381/603d60/FFFFFF?text=${game.name}`;
+
+    if (game.cover) {
+      img_path = imgCoverDisplay(game.cover, game.name);
+    }
     return (
-      <div key={game.id} className=" py-3 border border-3 border-dark bg-purple col-12 col-md-4 col-sm-6">
-        <div className="text-center ">
-          <h3 className='text_color'>{game.name}</h3>
-          <button className='text_color btn btn-secondary' onClick={() => clickHandler(game)}>See More</button>
-          <p className='text_color m-0'> Genres: {itemDisplay(game.genres)}</p>
-          <p className='text_color m-0'> Platforms: {itemDisplay(game.platforms)}</p>
-          <p className='text_color m-0'> Release Date: {dateDisplay(game.release_dates)}</p>
+      <div key={game.name + i} className=" col-12 col-md-4 col-sm-6 mb-4 d-flex justify-content-center">
+        <div
+          className=" card bg-purple border border-dark"
+          style={{ width: "18rem" }}
+        >
+          <img src={img_path} className="card-img-top " />
+          <div className="card-body">
+            <h4 className="card-title text_color">{game.name}</h4>
+            <p className="card-text text_color h6 text-muted">
+              {itemDisplay(game.platforms)}
+            </p>
+            <button className="btn btn-dark" onClick={() => clickHandler(game)}>
+              See More
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -93,10 +135,10 @@ export default function FindGames(props) {
       <div>
         <GameNavbar />
       </div>
-      <div className='container'>
+      <div className="container">
         <div className="row pt-5">
           <h1>Search For A Game</h1>
-          
+
           <div className="input-group mb-3">
             <input
               type="text"
@@ -117,15 +159,15 @@ export default function FindGames(props) {
             </button>
           </div>
         </div>
-        <div className=''>
+        <div className="">
+          {/* <img  src={`//images.igdb.com/igdb/image/upload/t_original/ar4ij.jpg`}></img> */}
           <div className="row pt-4 d-flex justify-content-center align-content-center ">
             {mappedData}
           </div>
         </div>
       </div>
-      <div>
-        {"FOOTER HERE"}
-      </div>
+      <div>{"FOOTER HERE"}</div>
+      <Toaster />
     </div>
   );
 }

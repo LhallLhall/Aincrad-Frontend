@@ -2,6 +2,7 @@
   text-align: center;
 }
 
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -37,7 +38,9 @@
   }
 }
 .mainFont {
-  font-family: 'Chakra Petch', sans-serif;
+  /* font-family: 'Chakra Petch', sans-serif; */
+  font-family: 'speedy', sans-serif;
+  
 }
 /* .darkColor {
   background-color: rgba(0, 0, 0, 0.327);
@@ -135,6 +138,14 @@ backdrop-filter: blur(3px);
   /* background-blend-mode: color-dodge !important; */
 
  }
+
+.test{
+  /* object-fit: cover; */
+  background-size: cover;
+  background-position: fixed;
+  width: 50vw;
+  height: 50vh;
+}
 
  .find_games_img {
   background-blend-mode: color-dodge !important;
