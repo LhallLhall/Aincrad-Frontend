@@ -110,7 +110,7 @@ export default function FindGames(props) {
       img_path = imgCoverDisplay(game.cover, game.name);
     }
     return (
-      <div key={game.name + i} className=" col-12 col-md-4 col-sm-6 mb-4 d-flex justify-content-center">
+      <div key={game.name + i} className=" col-12 col-lg-3 col-md-4 col-sm-6 mb-4 d-flex justify-content-center">
         <div
           className=" card bg-purple border border-dark"
           style={{ width: "18rem" }}

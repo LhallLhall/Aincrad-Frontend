@@ -62,7 +62,7 @@ export default function MyGames() {
       img_path = imgCoverDisplay(game.game.cover, game.game.name);
     }
     return (
-      <div key={game.game.id} className=" col-12 col-md-4 col-sm-6 mb-4 d-flex justify-content-center">
+      <div key={game.game.id} className=" col-12 col-md-4 col-sm-6 mb-4 col-lg-3 d-flex justify-content-center">
         <div
           className=" card bg-purple border border-dark"
           style={{ width: "18rem" }}
