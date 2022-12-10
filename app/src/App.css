@@ -78,7 +78,10 @@
   text-shadow: none; /* Prevent inheritance from `body` */
 }
 
-
+.imgResize {
+  height: 5vh;
+  /* width: 5vw; */
+}
 /*
  * Base structure
  */

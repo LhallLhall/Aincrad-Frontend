@@ -5,10 +5,8 @@ import request from "../services/api.request.jsx";
 import toast, { Toaster } from "react-hot-toast";
 
 export default function GamePage() {
-  // let [game, setGame] = useState();
   let [addedToMyGames, setAddedToMyGames] = useState(true);
   let [state] = useGlobalState();
-  // let navigate = useNavigate();
   console.log(state);
 
   function itemDisplay(item) {
@@ -19,7 +17,6 @@ export default function GamePage() {
     for (let i = 0; i < item.length; i++) {
       itemStr += "  " + item[i].name;
     }
-    // console.log(itemStr);
     return itemStr;
   }
 
@@ -33,19 +30,6 @@ export default function GamePage() {
     }
   }
 
-  // function companyDisplay(item) {
-  //   if (!item) {
-  //     return;
-  //   }
-  //   let companyStr = "";
-  //   for (let i = 0; i < item.length; i++) {
-  //     // companyStr += ' ' + item[0].company.name
-  //     for (let y = 0; y < item[i].length; y++) {
-  //       console.log(item[y].name);
-  //       companyStr += " " + item[y].name;
-  //     }
-  //   }
-  // }
 
   function dateDisplay(item) {
     if (!item) {
@@ -56,7 +40,7 @@ export default function GamePage() {
     return itemStr;
   }
 
-  // console.log(itemStr)
+  
 
   async function postGameToDatabase() {
     try {
@@ -115,98 +99,67 @@ export default function GamePage() {
     }
   }
 
+  let imgLink = "https://www.freepnglogos.com/uploads/plus-icon/plus-icon-download-png-and-vector-17.png"
+  if(addedToMyGames === false){
+    imgLink = "https://cdn-icons-png.flaticon.com/512/95/95068.png"
+  }
+
   return (
     <div className="findGamesHeight overflow-scroll">
       <div className="container">
         <GameNavbar />
-        <div className="row">
-          <div className="col-4 offset-4 text-center">
-            <h2 className='pb-2'>{state.selectedGame.name}</h2>
+        <div className="row pt-5">
+          <div className="col-12 col-md-4">
+            <h2 className=' text-center pb-2'>{state.selectedGame.name}</h2>
           </div>
         </div>
-        <div className="row bg-purple rounded d-flex justify-content-center align-items-center">
-          <div className="col-12 border-dark border-start border-end col-md-2 pb-m-3 d-flex justify-content-center align-items-top">
-            <div className="row">
-              <div className="col-12 text-center">
-                <label className="text_color">Platforms</label>
-              </div>
-              <div className="col-12 text-center">
-                <p className="text_color m-0">
-                  {itemDisplay(state.selectedGame.platforms)}
-                </p>
-              </div>
+        <div className='row bg-purple rounded d-flex justify-content-center'>
+            <div className='col-10 col-md-2 bg-dark rounded m-3'>
+              <h5 className=' pt-1 text-center text_color'>Franchise/s</h5>
+              <p className='text-center pb-2 text_color'>{itemDisplay(state.selectedGame.franchises)}</p>
             </div>
-          </div>
-          <div className="col-2 h-100 border-dark border-start border-end d-flex justify-content-center align-items-top">
-            <div className="row">
-              <div className="col-12 text-center">
-                <label className=" text_color pb-2">Release</label>
-              </div>
-              <div className="col-12 text-center">
-                <p className=" text_color m-0">
-                  {dateDisplay(state.selectedGame.release_dates)}
-                </p>
-              </div>
+            <div className='col-10 col-md-3 bg-dark rounded m-3'>
+              <h5 className='pt-1 text-center text_color'>Platform/s</h5>
+              <p className="text-center pb-2 text_color">{itemDisplay(state.selectedGame.platforms)}</p>
             </div>
-          </div>
-          <div className="col-2 h-100 border-dark border-start border-end d-flex justify-content-center align-items-top">
-            <div className="row">
-              <div className="col-12 text-center">
-                <label className=" text_color pb-2">Genres</label>
-              </div>
-              <div className="col-12 text-center">
-                <p className=" text_color m-0">
-                  {itemDisplay(state.selectedGame.genres)}
-                </p>
-              </div>
+            <div className='col-10 col-md-2 bg-dark rounded m-3'>
+              <h5 className='pt-1 text-center text_color'>Release Date</h5>
+              <p className="text-center pb-2 text_color">{dateDisplay(state.selectedGame.release_dates)}</p>
             </div>
-          </div>
-          <div className="col-2 h-100 border-dark border-start border-end d-flex justify-content-center align-items-top">
-            <div className="row">
-              <div className="col-12 text-center">
-                <label className=" text_color pb-2">Franchises</label>
-              </div>
-              <div className="col-12 text-center">
-                <p className=" text_color m-0">
-                  {itemDisplay(state.selectedGame.franchises)}
-                </p>
-              </div>
+            <div className='col-10 col-md-2 bg-dark rounded m-3'>
+              <h5 className='pt-1 text-center text_color'>Genre/s</h5>
+              <p className="text-center pb-2 text_color">{itemDisplay(state.selectedGame.genres)}</p>
             </div>
-          </div>
-          <div className="col-2 h-100 border-dark border-start border-end d-flex justify-content-center align-items-top">
-            <div className="row">
-              <div className="col-12 text-center">
-                <label className=" text_color pb-2">Rating</label>
-              </div>
-              <div className="col-12 text-center">
-                <p className="text_color m-0">
-                  {Math.ceil(state.selectedGame.rating)}
-                </p>
-              </div>
+            <div className='col-10 col-md-1 d-flex justify-content-center align-items-center'>
+              <img src={imgLink}  className="imgResize" onClick={postGameToDatabase}>
+              {/* <h5 className="p-0 m-0">
+                {addedToMyGames ? "Add to My Games" : "Remove from My Games"}
+              </h5> */}
+            </img>
             </div>
-          </div>
         </div>
-        <div className="pt-4 text-center">
+        
+        {/* <div className="pt-4 text-center">
           <button className="btn btn-dark" onClick={postGameToDatabase}>
             <h5 className="p-0 m-0">
               {addedToMyGames ? "Add to My Games" : "Remove from My Games"}
             </h5>
           </button>
-        </div>
-        <div className="row pt-5 mt-3 justify-content-evenly ">
-          <div className=" bg-purple border border-dark border-3 col-8 d-flex justify-content-start">
-            <div className="col-12">
-              <h1 className="text-center text_color border-bottom border-dark border-2">Summary</h1>
-              <p className="text-center text_color ">{state.selectedGame.summary}</p>
-            </div>
+        </div> */}
+        {/* <div className='d-flex justify-content-center'> */}
+        <div className="row pt-2 mt-4 ">
+          <div className="col-12 col-md-12  p-0 bg-purple rounded  ">
+            <h1 className='mainFont col-3 pt-2 ps-3 pb-0  text_color '>Summary</h1>
+            <p className='pt-3 border-top border-dark border-4 px-3 text_color '>{state.selectedGame.summary}</p>
           </div>
         </div>
-        <div className="row pt-5 mt-3 justify-content-evenly ">
-          <div className="col-10 bg-purple text-center border border-3 border-dark ">
-            <h1 className='text-center border-bottom text_color border-dark border-2'>Storyline</h1>
-            <p className='text-center text_color '>{state.selectedGame.storyline}</p>
+        <div className="row pt-2 mt-4  ">
+          <div className="col-12 col-md-12  p-0 bg-purple rounded ">
+            <h1 className='mainFont col-3 pt-2 ps-3 pb-0   text_color '>Storyline</h1>
+            <p className='pt-3 border-top border-dark border-4 px-3 text_color '>{state.selectedGame.storyline}</p>
           </div>
         </div>
+        {/* </div> */}
         <Toaster />
       </div>
     </div>
