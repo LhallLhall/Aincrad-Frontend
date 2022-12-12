@@ -46,7 +46,36 @@ const initialState = {
     timer_status: false,
     updated_at: "",
     user: 1
-}
+},
+  localStorage: {
+    id: 0,
+    name: '',
+    summary: '',
+    genres: [],
+    platforms: [],
+    cover: {},
+    release_dates: [],
+    franchises: [],
+    companies: [],
+    storyline: '',
+    rating: 0,
+    artworks: []
+  },
+  localStorageMyGames: {
+    id: 0,
+    game_id: 0,
+    name: '',
+    genres: '',
+    platforms: "",
+    completed: false,
+    release_dates: '',
+    franchises: '',
+    companies: '',
+    storyline: '',
+    summary: '',
+    rating: 0,
+    cover: ''
+  }
   // gameSearch: []
 };
 

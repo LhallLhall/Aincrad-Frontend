@@ -5,6 +5,7 @@ import {
   } from './auth.constants'
   
   import request from "./api.request";
+  import { toast } from 'react-hot-toast';
   
   class AuthService {
     constructor() {
@@ -50,7 +51,7 @@ import {
       })
       .then(() => {
         this.login(username, password)
-      })
+      }).catch(error => toast.error("username already exists"))
     }
   
     setToken(resp) {

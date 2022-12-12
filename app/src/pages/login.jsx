@@ -7,6 +7,7 @@ import AuthService from "../services/auth.service";
 import { useNavigate } from "react-router-dom";
 import { useGlobalState } from "../context/GlobalState";
 import jwtDecode from "jwt-decode";
+import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
   let navigate = useNavigate();
@@ -32,8 +33,8 @@ const Login = () => {
           currentUser: data,
         });
         navigate("/findGames");
-      });
-    
+      })
+      .catch((error) => toast.error("username or password incorrect!"));
   };
   return (
     <div
@@ -71,6 +72,7 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };

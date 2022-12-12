@@ -50,7 +50,8 @@ export default function MyGames() {
       gameList: game.game,
       usergame: game.usergame
     });
-    
+    localStorage.setItem("data", JSON.stringify(game.game));
+    localStorage.setItem("usergame", JSON.stringify(game.usergame));
     
     navigate("/myGames/game");
   }

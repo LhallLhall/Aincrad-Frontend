@@ -132,14 +132,8 @@ backdrop-filter: blur(3px);
 
 .gamePageImg {
   /* height: 20vh; */
-  width: 20vw;
-  image-rendering: initial;
-  /* backdrop-filter: blur(45px); */
-  /* filter:blur(7px); */
+  width: 400px;
   background-blend-mode: color-dodge;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: fixed;
 }
 
  .bg_image {

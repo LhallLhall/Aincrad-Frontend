@@ -18,10 +18,10 @@ export default function GameNavbar() {
       <nav className="navbar navbar-expand-lg ">
         <div className="container-fluid">
           <Link className="navbar-brand" to='/'>
-              <img src={imgSRC} alt="logo" className='rounded img' height='60vh' width="76vw">
+              <img src={imgSRC} alt="logo" className='rounded img d-none d-sm-flex' height='60vh' width="76vw">
               </img>
           </Link>
-          <div className='text-center pe-5'>
+          <div className='text-center '>
             <h1 className='m-0 mainFont ps-3'>
               Aincrad
             </h1>
@@ -69,8 +69,8 @@ export default function GameNavbar() {
                     <strong>My Games</strong>
                   </Link>
                 </li>
-                <li className="nav-item ps-0">
-                  <button className=' mt-md-2 btn btn-dark' onClick={Logout}>
+                <li className="nav-item ps-0 ">
+                  <button className='mt-sm-2 mt-lg-0 btn btn-dark text-center' onClick={Logout}>
                     <div className='text_color'>Logout</div>
                   </button>
                 </li>

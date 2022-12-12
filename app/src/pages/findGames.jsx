@@ -67,17 +67,11 @@ function grabHeight(item) {
 }
 
 export default function FindGames(props) {
-  // const [gameData, setGameData] = useState({});
   const [state, dispatch] = useGlobalState();
   const [data, setData] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   let inputField = document.getElementById("inputField");
   let navigate = useNavigate();
-  // useEffect(() => {
-  //     Axios.get('https://8000-lhalllhall-aincradbacke-leafyr8orcy.ws-us77.gitpod.io/games/api/')
-  //         .then((resp) => setData(resp.data));
-  // }, [])
-  // console.log(data)
 
   const search = (e) => {
     setSearchValue(e.target.value);
@@ -90,7 +84,7 @@ export default function FindGames(props) {
       ).then((resp) => setData(resp.data));
       inputField.value = "";
     } catch {
-      alert("Search Was Invalid");
+      toast.error("Search Was Invalid");
     }
   };
 
@@ -99,6 +93,7 @@ export default function FindGames(props) {
       ...state,
       selectedGame: game,
     });
+    localStorage.setItem("data", JSON.stringify(game));
     navigate("/game");
   }
 
