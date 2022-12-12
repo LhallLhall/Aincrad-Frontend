@@ -131,13 +131,13 @@ export default function FindGames(props) {
   });
 
   return (
-    <div className="findGamesHeight overflow-auto">
-      <div>
+    <div className="findGamesHeight find_games_img overflow-auto" style={{ backgroundBlendMode: "color-dodge" }}>
+      <div className=''>
         <GameNavbar />
       </div>
       <div className="container">
         <div className="row pt-5">
-          <h1>Search For A Game</h1>
+          <h1 className='pb-3'>Search For A Game</h1>
 
           <div className="input-group mb-3">
             <input
@@ -166,7 +166,7 @@ export default function FindGames(props) {
           </div>
         </div>
       </div>
-      <div>{"FOOTER HERE"}</div>
+      {/* <div>{"FOOTER HERE"}</div> */}
       <Toaster />
     </div>
   );

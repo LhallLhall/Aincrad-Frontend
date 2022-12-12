@@ -24,16 +24,16 @@ const Login = () => {
   };
 
   const handleLogin = (e) => {
-    e.preventDefault();
-
-    AuthService.login(username, password).then(async (resp) => {
-      let data = jwtDecode(resp.access);
-      await dispatch({
-        currentUserToken: resp.access,
-        currentUser: data,
+      e.preventDefault();
+      AuthService.login(username, password).then(async (resp) => {
+        let data = jwtDecode(resp.access);
+        await dispatch({
+          currentUserToken: resp.access,
+          currentUser: data,
+        });
+        navigate("/findGames");
       });
-      navigate("/findGames");
-    });
+    
   };
   return (
     <div

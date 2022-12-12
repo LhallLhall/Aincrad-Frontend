@@ -25,9 +25,11 @@ export default function GamePage() {
       return
     }
     let urlStr = ''
-    for(let i =0; i < item.length; i++){
-      urlStr += item[0].url
-    }
+    urlStr += item[0].url
+    
+    let newStr = urlStr.replace("t_thumb", "t_screenshot_big");
+    
+    return newStr
   }
 
 
@@ -95,22 +97,28 @@ export default function GamePage() {
 
       // alert("Game Successfully Added To My Games");
     } catch {
-      toast.error("That didn't work.");
+      toast.error("That Game May Already Be Added");
     }
   }
-
+  let image = `https://via.placeholder.com/1800x1272/603d60/FFFFFF?text=${state.selectedGame.name}`
+  if(state.selectedGame.artworks){
+    image = urlGrab(state.selectedGame.artworks)
+  }
   let imgLink = "https://www.freepnglogos.com/uploads/plus-icon/plus-icon-download-png-and-vector-17.png"
   if(addedToMyGames === false){
     imgLink = "https://cdn-icons-png.flaticon.com/512/95/95068.png"
   }
 
   return (
-    <div className="findGamesHeight overflow-scroll">
-      <div className="container">
+    <div className="findGamesHeight find_games_img overflow-scroll">
+      <div className="container " >
         <GameNavbar />
         <div className="row pt-5">
-          <div className="col-12 col-md-4">
+          <div className="col-12 col-md-7  d-flex justify-content-center align-items-center">
             <h2 className=' text-center pb-2'>{state.selectedGame.name}</h2>
+          </div>
+          <div className='col-12 col-md-5 d-flex  justify-content-center align-items-center'>
+            <img className=' gamePageImg blur  mb-3' src={image}></img>
           </div>
         </div>
         <div className='row bg-purple rounded d-flex justify-content-center'>
@@ -130,7 +138,7 @@ export default function GamePage() {
               <h5 className='pt-1 text-center text_color'>Genre/s</h5>
               <p className="text-center pb-2 text_color">{itemDisplay(state.selectedGame.genres)}</p>
             </div>
-            <div className='col-10 col-md-1 d-flex justify-content-center align-items-center'>
+            <div className='col-10 col-md-1 mb-3 mb-md-0 d-flex justify-content-center align-items-center'>
               <img src={imgLink}  className="imgResize" onClick={postGameToDatabase}>
               {/* <h5 className="p-0 m-0">
                 {addedToMyGames ? "Add to My Games" : "Remove from My Games"}
@@ -148,7 +156,7 @@ export default function GamePage() {
         </div> */}
         {/* <div className='d-flex justify-content-center'> */}
         <div className="row pt-2 mt-4 ">
-          <div className="col-12 col-md-12  p-0 bg-purple rounded  ">
+          <div className="col-12 col-md-12  p-0 bg-purple rounded">
             <h1 className='mainFont col-3 pt-2 ps-3 pb-0  text_color '>Summary</h1>
             <p className='pt-3 border-top border-dark border-4 px-3 text_color '>{state.selectedGame.summary}</p>
           </div>
@@ -160,8 +168,8 @@ export default function GamePage() {
           </div>
         </div>
         {/* </div> */}
-        <Toaster />
       </div>
+        <Toaster />
     </div>
   );
 }

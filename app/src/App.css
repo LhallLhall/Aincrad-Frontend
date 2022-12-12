@@ -79,7 +79,7 @@
 }
 
 .imgResize {
-  height: 5vh;
+  height: 6vh;
   /* width: 5vw; */
 }
 /*
@@ -130,6 +130,17 @@ backdrop-filter: blur(3px);
 
 }
 
+.gamePageImg {
+  /* height: 20vh; */
+  width: 20vw;
+  image-rendering: initial;
+  /* backdrop-filter: blur(45px); */
+  /* filter:blur(7px); */
+  background-blend-mode: color-dodge;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: fixed;
+}
 
  .bg_image {
   background-blend-mode: color-dodge !important;
@@ -151,8 +162,8 @@ backdrop-filter: blur(3px);
 }
 
  .find_games_img {
-  background-blend-mode: color-dodge !important;
   background: url("https://images.unsplash.com/photo-1557682250-33bd709cbe85?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cHVycGxlJTIwYmFja2dyb3VuZHxlbnwwfHwwfHw%3D&w=1000&q=80") no-repeat center center fixed;
+  background-blend-mode: color-dodge !important;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: fixed;

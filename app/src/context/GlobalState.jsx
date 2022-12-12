@@ -19,7 +19,7 @@ const initialState = {
     companies: [],
     storyline: '',
     rating: 0,
-    // artworks: []
+    artworks: []
   },
   gameList: {
     id: 0,

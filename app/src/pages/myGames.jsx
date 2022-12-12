@@ -16,14 +16,14 @@ export default function MyGames() {
   let navigate = useNavigate();
 
   function imgCoverDisplay(cover, name) {
-    console.log(cover)
+    // console.log(cover)
     let itemStr = `https://via.placeholder.com/286x381/603d60/FFFFFF?text=${name}`;
     // if (!cover) {
     //   return itemStr;
     // }
   
     itemStr = cover;
-    console.log(itemStr)
+    // console.log(itemStr)
     let newStr = itemStr.replace("t_thumb", "t_original");
     return newStr;
   }
@@ -64,10 +64,10 @@ export default function MyGames() {
     return (
       <div key={game.game.id} className=" col-12 col-md-4 col-sm-6 mb-4 col-lg-3 d-flex justify-content-center">
         <div
-          className=" card bg-purple border border-dark"
+          className=" rounded card bg-purple border border-dark"
           style={{ width: "18rem" }}
         >
-          <img src={img_path} className="card-img-top " />
+          <img src={img_path} className="card-img-top  " />
           <div className="card-body">
             <h4 className="card-title text_color">{game.game.name}</h4>
             <p className="card-text text_color h6 text-muted">
@@ -95,10 +95,10 @@ export default function MyGames() {
       // </div>
     );
   });
-  console.log(mappedData);
+  // console.log(mappedData);
 
   return (
-    <div className='findGamesHeight overflow-auto'>
+    <div className='findGamesHeight overflow-auto find_games_img'>
       <GameNavbar />
       <div className='container'>
       <div className='row border-bottom border-dark border-3'>

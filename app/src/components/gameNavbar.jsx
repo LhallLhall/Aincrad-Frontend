@@ -22,7 +22,7 @@ export default function GameNavbar() {
               </img>
           </Link>
           <div className='text-center pe-5'>
-            <h1 className='m-0 mainFont text_color_purple ps-3'>
+            <h1 className='m-0 mainFont ps-3'>
               Aincrad
             </h1>
           </div>
@@ -42,8 +42,8 @@ export default function GameNavbar() {
             aria-labelledby="offcanvasNavbarLabel"
           >
             <div className="offcanvas-header">
-              <h5 className="offcanvas-title text_color_purple" id="offcanvasNavbarLabel">
-                Aincrad
+              <h5 className="offcanvas-title " id="offcanvasNavbarLabel">
+                <strong>Aincrad</strong>
               </h5>
               <button
                 type="button"
@@ -55,8 +55,8 @@ export default function GameNavbar() {
             <div className="offcanvas-body">
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li className="nav-item">
-                  <Link className="nav-link text_color_purple" aria-current="page" to="/findGames">
-                    Find Games
+                  <Link className="nav-link " aria-current="page" to="/findGames">
+                    <strong>Find Games</strong>
                   </Link>
                 </li>
                 {/* <li className="nav-item">
@@ -65,12 +65,12 @@ export default function GameNavbar() {
                   </Link>
                 </li> */}
                 <li className="nav-item">
-                  <Link className="nav-link text_color_purple" to="/myGames">
-                    My Games
+                  <Link className="nav-link " to="/myGames">
+                    <strong>My Games</strong>
                   </Link>
                 </li>
-                <li className="nav-item ps-2">
-                  <button className=' btn btn-dark' onClick={Logout}>
+                <li className="nav-item ps-0">
+                  <button className=' mt-md-2 btn btn-dark' onClick={Logout}>
                     <div className='text_color'>Logout</div>
                   </button>
                 </li>

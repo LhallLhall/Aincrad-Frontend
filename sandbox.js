@@ -1,94 +1,62 @@
-{/* <div className="findGamesHeight overflow-scroll">
-<div className="container">
-  <GameNavbar />
-  <div className="row">
-    <div className="col-4 offset-4 text-center">
-      <h2 className='pb-2'>{state.selectedGame.name}</h2>
-    </div>
-  </div>
-  <div className="row bg-purple rounded d-flex justify-content-center align-items-center">
-    <div className="col-12 border-dark border-start border-end col-md-2 pb-m-3 d-flex justify-content-center align-items-top">
-      <div className="row">
-        <div className="col-12 text-center">
-          <label className="text_color">Platforms</label>
-        </div>
-        <div className="col-12 text-center">
-          <p className="text_color m-0">
-            {itemDisplay(state.selectedGame.platforms)}
-          </p>
-        </div>
-      </div>
-    </div>
-    <div className="col-2 h-100 border-dark border-start border-end d-flex justify-content-center align-items-top">
-      <div className="row">
-        <div className="col-12 text-center">
-          <label className=" text_color pb-2">Release</label>
-        </div>
-        <div className="col-12 text-center">
-          <p className=" text_color m-0">
-            {dateDisplay(state.selectedGame.release_dates)}
-          </p>
-        </div>
-      </div>
-    </div>
-    <div className="col-2 h-100 border-dark border-start border-end d-flex justify-content-center align-items-top">
-      <div className="row">
-        <div className="col-12 text-center">
-          <label className=" text_color pb-2">Genres</label>
-        </div>
-        <div className="col-12 text-center">
-          <p className=" text_color m-0">
-            {itemDisplay(state.selectedGame.genres)}
-          </p>
-        </div>
-      </div>
-    </div>
-    <div className="col-2 h-100 border-dark border-start border-end d-flex justify-content-center align-items-top">
-      <div className="row">
-        <div className="col-12 text-center">
-          <label className=" text_color pb-2">Franchises</label>
-        </div>
-        <div className="col-12 text-center">
-          <p className=" text_color m-0">
-            {itemDisplay(state.selectedGame.franchises)}
-          </p>
-        </div>
-      </div>
-    </div>
-    <div className="col-2 h-100 border-dark border-start border-end d-flex justify-content-center align-items-top">
-      <div className="row">
-        <div className="col-12 text-center">
-          <label className=" text_color pb-2">Rating</label>
-        </div>
-        <div className="col-12 text-center">
-          <p className="text_color m-0">
-            {Math.ceil(state.selectedGame.rating)}
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div className="pt-4 text-center">
-    <button className="btn btn-dark" onClick={postGameToDatabase}>
-      <h5 className="p-0 m-0">
-        {addedToMyGames ? "Add to My Games" : "Remove from My Games"}
-      </h5>
-    </button>
-  </div>
-  <div className="row pt-5 mt-3 justify-content-evenly ">
-    <div className=" bg-purple border border-dark border-3 col-8 d-flex justify-content-start">
-      <div className="col-12">
-        <h1 className="text-center text_color border-bottom border-dark border-2">Summary</h1>
-        <p className="text-center text_color ">{state.selectedGame.summary}</p>
-      </div>
-    </div>
-  </div>
-  <div className="row pt-5 mt-3 justify-content-evenly ">
-    <div className="col-10 bg-purple text-center border border-3 border-dark ">
-      <h1 className='text-center border-bottom text_color border-dark border-2'>Storyline</h1>
-      <p className='text-center text_color '>{state.selectedGame.storyline}</p>
-    </div>
-  </div>
-  <Toaster />
-</div>
-</div> */}
+// {/* <div className=" find_games_img">
+//       <div className='container'>
+//         <GameNavbar />
+//         <div className="row">
+//           <div className="col-4 offset-4 text-center">
+//             <h2>{state.gameList.name}</h2>
+// {/* 
+//             <h5>{state.gameList.platform}</h5>
+//             <h5>{state.gameList.release_date}</h5> */}
+//             <div className="pt-2">
+//               <button
+//                 className="btn btn-secondary"
+//                 onClick={updateMyGameStatus}
+//               >
+//                 <h5>Remove from My Games</h5>
+//               </button>
+//               <button onClick={clickHandler}>
+//                 <h5>{isCompleted ? "Completed" : "Click to Complete"}</h5>
+//               </button>
+//             </div>
+//           </div>
+//         </div>
+//         <div className="row pt-5 mt-3 justify-content-evenly ">
+//           <div className=" border border-dark align-items-center col-4 d-flex justify-content-start">
+//             <div className="col-12">
+//               <h4 className="text-center border-bottom">Summary</h4>
+//               <p className="text-center overflow-scroll">
+//                 {state.gameList.summary}
+//               </p>
+//             </div>
+//           </div>
+
+//           <div className=" border border-dark align-items-center col-4 d-flex justify-content-center">
+//             <div className="text-center">
+//               <div>
+//                 <h5>Genres:</h5>
+//                 <p>{state.gameList.genre}</p>
+//               </div>
+              
+//               <div>
+//                 <h5>Rating:</h5>
+//                 <p>{state.gameList.rating}</p>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//         <div className="row pt-5">
+//           <div className="col-8 overflow-scroll offset-2 text-center border border-dark ">
+//             <h4>Storyline</h4>
+//             <p>{state.gameList.storyline}</p>
+//           </div>
+//           <div className="row text-center">
+//             <div className="col pt-5 ">
+//               {/* <button>
+//                 <h4 className="">Start Timer</h4>
+//               </button> */}
+//               <StopWatch/>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </div> */}
