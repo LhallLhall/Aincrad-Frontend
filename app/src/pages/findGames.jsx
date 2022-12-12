@@ -51,7 +51,7 @@ function imgArtworksDisplay(artworks) {
   // if()
   let itemStr = artworks[0].url;
   let newStr = itemStr.replace("t_thumb", "t_original");
-  console.log(newStr);
+  
 
   // console.log(itemStr[1])
   return newStr;
@@ -97,7 +97,7 @@ export default function FindGames(props) {
     navigate("/game");
   }
 
-  console.log(data);
+  
   let mappedData = data.map((game, i) => {
     let img_path = `https://via.placeholder.com/286x381/603d60/FFFFFF?text=${game.name}`;
 
@@ -132,7 +132,7 @@ export default function FindGames(props) {
       </div>
       <div className="container">
         <div className="row pt-5">
-          <h1 className='pb-3'>Search For A Game</h1>
+          <h1 className='pb-3 text_color'>Search For A Game</h1>
 
           <div className="input-group mb-3">
             <input
@@ -145,7 +145,7 @@ export default function FindGames(props) {
               aria-describedby="button-addon2"
             />
             <button
-              className="btn btn_color"
+              className="btn btn-dark"
               onClick={submit}
               type="button"
               id="button-addon2"

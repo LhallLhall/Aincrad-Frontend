@@ -10,8 +10,7 @@ export default function GamePage() {
   const [ localCheck ] = useState(() => {
     return JSON.parse(localStorage.getItem("data"))
   });
-  console.log(localCheck)
-  console.log(state);
+  
 
   function itemDisplay(item) {
     if (!item) {
@@ -57,14 +56,14 @@ export default function GamePage() {
           method: "DELETE",
         };
         let res = await request(deleteOptions);
-        console.log(res);
+        
         setAddedToMyGames(!addedToMyGames);
         toast.success("Successfully Deleted");
         return;
       }
 
       let cover2 = state.selectedGame.cover.url
-      console.log(cover2)
+      
 
       let options = {
         url: "game/",
@@ -81,7 +80,7 @@ export default function GamePage() {
           completed: false,
           storyline: state.selectedGame.storyline,
           cover: state.selectedGame.cover.url,
-          // artworks: urlGrab(state.selectedGame.artworks)
+          
         },
       };
 
@@ -92,22 +91,19 @@ export default function GamePage() {
         method: "POST",
       };
       let response = await request(payload);
-      console.log(response);
+      
 
       if (response.status === 200) {
         setAddedToMyGames(!addedToMyGames);
         toast.success("Successfully Added!");
       }
 
-      // alert("Game Successfully Added To My Games");
+      
     } catch {
       toast.error("That Game May Already Be Added");
     }
   }
   let image = `https://via.placeholder.com/1800x1272/603d60/FFFFFF?text=${state.selectedGame.name}`
-  // if(state.selectedGame.artworks){
-  //   image = urlGrab(state.selectedGame.artworks)
-  // }
   if(localCheck.artworks){
     image = urlGrab(localCheck.artworks)
   }
@@ -116,9 +112,6 @@ export default function GamePage() {
     imgLink = "https://cdn-icons-png.flaticon.com/512/95/95068.png"
   }
   if (localCheck){
-    console.log('localStorage is working')
-    console.log(localCheck)
-    console.log(itemDisplay(localCheck.genres))
     return (
       <div className="findGamesHeight find_games_img overflow-scroll">
       <div className="container " >

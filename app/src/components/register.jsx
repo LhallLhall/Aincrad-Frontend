@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Navbar from "./navbar.jsx";
+import AuthService from "../services/auth.service"
+import toast, {Toaster} from "react-hot-toast"
 
 
 export default function Register() {
@@ -19,29 +21,51 @@ export default function Register() {
   //   setSomeState(resp.data) // set the response
   // const [ state, dispatch ] = useGlobalState();
   // }
-  const userNameInput = (e) => {
-    setUsername(e.target.value);
-  };
-  const passwordInput = (e) => {
-    setPassword(e.target.value);
-  };
+  // const userNameInput = (e) => {
+  //   setUsername(e.target.value);
+  // };
+  // const passwordInput = (e) => {
+  //   setPassword(e.target.value);
+  // };
 
-  const submit = () => {
-    if (username.length === 0) {
-      return alert("Not a valid Username or Password");
+  // const submit = () => {
+  //   if (username.length === 0) {
+  //     return alert("Not a valid Username or Password");
+  //   }
+  //   if (password.length === 0) {
+  //     return alert("Not a valid Username or Password");
+  //   }
+  //   axios.post(
+  //     "https://8000-lhalllhall-aincradbacke-leafyr8orcy.ws-us78.gitpod.io//games/user/create/",
+  //     {
+  //       username: username,
+  //       password: password,
+  //     }
+  //   );
+  //   navigate("/login");
+  // };
+  
+    const [user, setUser] = useState({
+      username: "",
+      password: "",
+      // passwordConf: "",
+      // firstName: "",
+      // lastName: "",
+      // email: "",
+    })
+  
+    const handleChange = (key, value) => {
+      setUser({
+        ...user,
+        [key]: value
+      })
     }
-    if (password.length === 0) {
-      return alert("Not a valid Username or Password");
+  
+    const handleRegister = (e) => {
+      e.preventDefault();
+      AuthService.register(user)
     }
-    axios.post(
-      "https://8000-lhalllhall-aincradbacke-leafyr8orcy.ws-us78.gitpod.io//games/user/create/",
-      {
-        username: username,
-        password: password,
-      }
-    );
-    navigate("/login");
-  };
+  
 
   return (
     <div
@@ -54,25 +78,26 @@ export default function Register() {
           <h1 className="pt-3 pb-3 text-center text_color">Register Here</h1>
           <div className="col-12 pb-4 d-flex justify-content-center">
             <input
-              onChange={userNameInput}
+              onChange={(e) => handleChange('username', e.target.value)}
               type="text"
               placeholder="Username"
             />
           </div>
           <div className="col-12 pb-4 d-flex justify-content-center">
             <input
-              onChange={passwordInput}
+              onChange={(e) => handleChange('password', e.target.value)}
               type="password"
               placeholder="Password"
             />
           </div>
           <div className="col-12 d-flex justify-content-center">
-            <button onClick={submit} type="button" className="btn btn_color">
+            <button onClick={handleRegister} type="button" className="btn btn_color">
               <div className="text_color">Click to Register</div>
             </button>
           </div>
         </div>
       </div>
+      <Toaster/>
     </div>
   );
 }

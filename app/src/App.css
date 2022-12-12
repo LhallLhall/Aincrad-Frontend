@@ -119,6 +119,10 @@ backdrop-filter: blur(3px);
   color:rgb(78, 14, 78) !important;
 }
 
+.bg_purple {
+  background-blend-mode: color-dodge;
+}
+
 .navBlur {
   backdrop-filter: blur(4px);
 }
@@ -201,4 +205,10 @@ backdrop-filter: blur(3px);
 .nav-masthead .active {
   color: #fff;
   border-bottom-color: #fff;
+}
+
+@media (max-device-width: 991px){
+  .bg_purple {
+    background-color: #7a048eaf;
+  }
 }

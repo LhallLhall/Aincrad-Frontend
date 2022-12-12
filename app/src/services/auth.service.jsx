@@ -51,7 +51,8 @@ import {
       })
       .then(() => {
         this.login(username, password)
-      }).catch(error => toast.error("username already exists"))
+        toast.success("Successfully Created A User!")
+      }).catch(error => toast.error("Username already exists"))
     }
   
     setToken(resp) {

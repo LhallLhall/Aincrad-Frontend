@@ -41,10 +41,7 @@ export default function MyGames() {
     grabUsersGames();
   }, []);
 
-  console.log(games);
-
   function clickHandler(game) {
-    console.log(game)
     dispatch({
       ...state,
       gameList: game.game,
@@ -63,7 +60,7 @@ export default function MyGames() {
       img_path = imgCoverDisplay(game.game.cover, game.game.name);
     }
     return (
-      <div key={game.game.id} className=" col-12 col-md-4 col-sm-6 mb-4 col-lg-3 d-flex justify-content-center">
+      <div key={game.game.id} className="col-12 col-md-4 col-sm-6 mb-4 col-lg-3 d-flex justify-content-center">
         <div
           className=" rounded card bg-purple border border-dark"
           style={{ width: "18rem" }}
@@ -102,8 +99,8 @@ export default function MyGames() {
     <div className='findGamesHeight overflow-auto find_games_img'>
       <GameNavbar />
       <div className='container'>
-      <div className='row border-bottom border-dark border-3'>
-      <h1 className='text-center'>My Games</h1>
+      <div className='row border-bottom border-white border-3'>
+      <h1 className='text-center text_color'>My Games</h1>
       </div>
       <div className="row pt-4 d-flex justify-content-center align-content-center overflow-auto">
         {mappedData}

@@ -13,6 +13,7 @@ export default function GameList() {
   let navigate = useNavigate();
   let [isCompleted, setIsCompleted] = useState(state.usergame.completed);
   let [hoursPlayed, setHoursPlayed] = useState(0)
+  let [totalHours, setTotalHours] = useState(state.usergame.hours_played)
   const [ localCheck ] = useState(() => {
     return JSON.parse(localStorage.getItem("data"))
   });
@@ -20,9 +21,11 @@ export default function GameList() {
   const [localUser] = useState(() =>{
     return JSON.parse(localStorage.getItem("usergame"))
   })
+  const [localHours] = useState(() => {
+    return JSON.parse(localStorage.getItem("hours"))
+  })
 
   let inputBox = document.getElementById("inputBox")
-  let p = document.getElementById("hours")
   
   async function updateMyGameStatus() {
     let deleteOptions = {
@@ -31,7 +34,6 @@ export default function GameList() {
     };
     let res = await request(deleteOptions);
 
-    console.log(res);
     navigate("/myGames");
   }
 
@@ -46,7 +48,7 @@ export default function GameList() {
       };
       let res = await request(payload);
       setIsCompleted(!isCompleted);
-      console.log(res);
+      
       toast.success("Successfully Updated");
     } catch {
       toast.error("error on the put request");
@@ -55,49 +57,56 @@ export default function GameList() {
 
   async function updateHours(){
     try{
+      let hours = totalHours + parseInt(hoursPlayed) 
+      console.log(typeof hours)
+      if(state.gameList){
+        let payload = {
+          url: `updateGameHours/${state.gameList.id}`,
+          method: "PUT",
+          data: {
+            hours_played: hours
+          }
+        }
+        let item ={
+          "hours_played": hours
+        }
+        localStorage.setItem('hours', JSON.stringify(item))
+      }
+      setTotalHours(hours)
+      
       let payload = {
-        url: `updateGameHours/${state.gameList.id}`,
+        url: `updateGameHours/${localCheck.id}`,
         method: "PUT",
         data: {
-          hours_played: parseInt(hoursPlayed)
+          hours_played: hours
         }
       }
       let resp = await request(payload);
       console.log(resp)
       toast.success("Successfully Updated");
-        p.value += parseInt(hoursPlayed) 
       inputBox.value = ''
-        hours += parseInt(hoursPlayed)
+      
     } catch {
-      toast.error("error updating hours players")
+      toast.error("Error Updating Hours")
     }
   } 
 
   function updateHoursPlayed (e) {
     setHoursPlayed(e.target.value)
   }
-
-  // let image = `https://via.placeholder.com/1800x1272/603d60/FFFFFF?text=${state.gameList.name}`
-  // if(state.gameList.artworks){
-  //   image = state.gameList.artworks
-  // }
-  let hours = state.usergame.hours_played
   
   if (localCheck && localUser){
-    console.log("local Storage is working")
     return (
       <div className="findGamesHeight find_games_img overflow-scroll">
       <div className="container ">
         <GameNavbar />
         <div className="row pt-5">
-          <div className="col-12   d-flex justify-content-center align-items-center">
-            <h2 className=" text-center  pb-2">{localCheck.name}</h2>
+          <div className="col-12 d-flex justify-content-center align-items-center">
+            <h2 className=" text-center mainFont text_color pb-2">{localCheck.name}</h2>
           </div>
-          {/* <div className='col-12 col-md-5 d-flex  justify-content-center align-items-center'>
-            <img className=' gamePageImg blur  mb-3' src={image}></img>
-          </div> */}
+          
         </div>
-        <div className="row bg-purple rounded d-flex justify-content-center">
+        <div className="row bg-purple mb-2 rounded d-flex justify-content-center">
           <div className="col-10 col-md-2 bg-dark rounded m-3">
             <h5 className=" pt-1 text-center text_color">Franchise/s</h5>
             <p className="text-center pb-2 text_color">
@@ -123,34 +132,34 @@ export default function GameList() {
             </p>
           </div>
           <div className="col-10 col-md-1 d-flex justify-content-center align-items-center">
-            <img
+            <img alt=''
               src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png"
               className="imgResize" onClick={(updateMyGameStatus)}
             ></img>
           </div>
         </div>
-        <div className="row text-center bg-purple mt-4 d-flex justify-content-center align-items-center m-1">
-          <div className="col-4 ">
+        <div className="row p-3 rounded text-center bg-purple my-4 d-flex justify-content-center align-items-center ">
+          <div className="col-6 col-md-4 ">
             <h5 className="text_color">Hours Played</h5>
-            <p className="text_color" id='hours'>{localUser.hours_played}</p>
+            <p className="text_color" id='hours'>{totalHours}</p>
           </div>
-          <div className="col-4">
+          <div className="col-6 col-md-4">
             <button className="btn btn-dark" onClick={clickHandler}>
               <h5 className="">
                 {isCompleted ? "Completed" : "Click to Complete"}
               </h5>
             </button>
           </div>
-          <div className="col-4 text_color">
+          <div className="col-12 col-md-4  text_color">
             {/* <h5>Add Hours</h5> */}
-            <input className='input-box' id="inputBox"type='number' placeholder="Add Hours" onChange={updateHoursPlayed}></input>
-            <button className='btn btn-dark' onClick={updateHours}>Submit Hours</button>
+            <input className='input-box mt-2  ' id="inputBox"type='number' placeholder="Add Hours" onChange={updateHoursPlayed}></input>
+            <button className='btn btn-dark m-1 ' onClick={updateHours}>Submit Hours</button>
             {/* <StopWatch /> */}
           </div>
         </div>
 
-        <div className="row pt-2 mt-4 ">
-          <div className="col-12 col-md-12  p-0 bg-purple rounded">
+        <div className="row mt-2 ">
+          <div className="col-12 col-md-12 p-0 bg-purple rounded">
             <h1 className="mainFont col-3 pt-2 ps-3 pb-0  text_color ">
               Summary
             </h1>
@@ -223,7 +232,7 @@ export default function GameList() {
         <div className="row text-center bg-purple mt-4 d-flex justify-content-center align-items-center m-1">
           <div className="col-4 ">
             <h5 className="text_color">Hours Played</h5>
-            <p className="text_color" id='hours'>{hours}</p>
+            <p className="text_color" id='hours'>{totalHours}</p>
           </div>
           <div className="col-4">
             <button className="btn btn-dark" onClick={clickHandler}>

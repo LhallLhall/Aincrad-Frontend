@@ -22,12 +22,12 @@ export default function GameNavbar() {
               </img>
           </Link>
           <div className='text-center '>
-            <h1 className='m-0 mainFont ps-3'>
+            <h1 className='m-0 mainFont text_color pe-4 '>
               Aincrad
             </h1>
           </div>
           <button
-            className="navbar-toggler"
+            className="navbar-toggler text_color"
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasNavbar"
@@ -41,9 +41,9 @@ export default function GameNavbar() {
             id="offcanvasNavbar"
             aria-labelledby="offcanvasNavbarLabel"
           >
-            <div className="offcanvas-header">
-              <h5 className="offcanvas-title " id="offcanvasNavbarLabel">
-                <strong>Aincrad</strong>
+            <div className="offcanvas-header bg_purple">
+              <h5 className="offcanvas-title  text_color" id="offcanvasNavbarLabel">
+                Aincrad
               </h5>
               <button
                 type="button"
@@ -52,11 +52,11 @@ export default function GameNavbar() {
                 aria-label="Close"
               ></button>
             </div>
-            <div className="offcanvas-body">
+            <div className="offcanvas-body bg_purple">
               <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
               <li className="nav-item">
-                  <Link className="nav-link " aria-current="page" to="/findGames">
-                    <strong>Find Games</strong>
+                  <Link className="nav-link text_color " aria-current="page" to="/findGames">
+                    <strong className='text_color'>Find Games</strong>
                   </Link>
                 </li>
                 {/* <li className="nav-item">
@@ -65,13 +65,13 @@ export default function GameNavbar() {
                   </Link>
                 </li> */}
                 <li className="nav-item">
-                  <Link className="nav-link " to="/myGames">
-                    <strong>My Games</strong>
+                  <Link className="nav-link  " to="/myGames">
+                    <strong className='text_color'>My Games</strong>
                   </Link>
                 </li>
                 <li className="nav-item ps-0 ">
                   <button className='mt-sm-2 mt-lg-0 btn btn-dark text-center' onClick={Logout}>
-                    <div className='text_color'>Logout</div>
+                    <div className='text_color'><strong>Logout</strong></div>
                   </button>
                 </li>
               </ul>
