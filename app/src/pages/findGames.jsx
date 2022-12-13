@@ -5,6 +5,7 @@ import GameNavbar from "../components/gameNavbar.jsx";
 // import GamePage from "../components/gamePage.jsx";
 import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+import { API_URL } from "../services/auth.constants";
 // import {
 //   BrowserRouter as Router,
 //   // Switch,
@@ -51,7 +52,6 @@ function imgArtworksDisplay(artworks) {
   // if()
   let itemStr = artworks[0].url;
   let newStr = itemStr.replace("t_thumb", "t_original");
-  
 
   // console.log(itemStr[1])
   return newStr;
@@ -79,9 +79,9 @@ export default function FindGames(props) {
 
   const submit = () => {
     try {
-      Axios.get(
-        `https://8000-lhalllhall-aincradbacke-leafyr8orcy.ws-us78.gitpod.io/games/search/${searchValue}`
-      ).then((resp) => setData(resp.data));
+      Axios.get(`${API_URL}search/${searchValue}`).then((resp) =>
+        setData(resp.data)
+      );
       inputField.value = "";
     } catch {
       toast.error("Search Was Invalid");
@@ -97,7 +97,6 @@ export default function FindGames(props) {
     navigate("/game");
   }
 
-  
   let mappedData = data.map((game, i) => {
     let img_path = `https://via.placeholder.com/286x381/603d60/FFFFFF?text=${game.name}`;
 
@@ -105,7 +104,10 @@ export default function FindGames(props) {
       img_path = imgCoverDisplay(game.cover, game.name);
     }
     return (
-      <div key={game.name + i} className=" col-12 col-lg-3 col-md-4 col-sm-6 mb-4 d-flex justify-content-center">
+      <div
+        key={game.name + i}
+        className=" col-12 col-lg-3 col-md-4 col-sm-6 mb-4 d-flex justify-content-center"
+      >
         <div
           className=" card bg-purple border border-dark"
           style={{ width: "18rem" }}
@@ -126,13 +128,16 @@ export default function FindGames(props) {
   });
 
   return (
-    <div className="findGamesHeight find_games_img overflow-auto" style={{ backgroundBlendMode: "color-dodge" }}>
-      <div className=''>
+    <div
+      className="findGamesHeight find_games_img overflow-auto"
+      style={{ backgroundBlendMode: "color-dodge" }}
+    >
+      <div className="">
         <GameNavbar />
       </div>
       <div className="container">
         <div className="row pt-5">
-          <h1 className='pb-3 text_color'>Search For A Game</h1>
+          <h1 className="pb-3 text_color">Search For A Game</h1>
 
           <div className="input-group mb-3">
             <input
